@@ -9,15 +9,15 @@ import Foundation
 
 
 
-struct User : Identifiable {
+struct AppUser : Identifiable {
     
     var id: String
     var email: String
     var name: String
     var lastName: String
     var male: String
-    var growth: Int
-    var weight: Int
+    var growth: String
+    var weight: String
     
     
     var representation : [String: Any] {

@@ -9,4 +9,10 @@ import UIKit
 
 class SerchViewCell: UICollectionViewCell {
     
+    @IBAction func serchBar(_ sender: UITextField) {
+        
+    }
+    @IBAction func serchButton(_ sender: UIButton) {
+        
+    }
 }
