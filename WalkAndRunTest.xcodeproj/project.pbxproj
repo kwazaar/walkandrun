@@ -419,6 +419,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkAndRunTest/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WalkAndRun;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Изменить текст";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Приложение получит доступ к геолокации для сохранения маршрутов передвижения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -452,6 +453,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkAndRunTest/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WalkAndRun;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Изменить текст";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Приложение получит доступ к геолокации для сохранения маршрутов передвижения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
