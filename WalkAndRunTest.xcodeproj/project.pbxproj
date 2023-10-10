@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F96182AD4F44A00A76FE5 /* MapPin.swift */; };
+		ED0F961B2AD4F7AB00A76FE5 /* MapSerchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */; };
 		ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B78982ABCAB2C009F09D4 /* AppUser.swift */; };
 		ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */; };
 		ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED0F96182AD4F44A00A76FE5 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSerchViewController.swift; sourceTree = "<group>"; };
 		ED1B78982ABCAB2C009F09D4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			children = (
 				ED1B78982ABCAB2C009F09D4 /* AppUser.swift */,
 				ED3CEAE32AC6171200BFC1F8 /* Employee.swift */,
+				ED0F96182AD4F44A00A76FE5 /* MapPin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				ED32F4662AB993E6004CDB29 /* MainViewController.swift */,
 				ED32F4682AB99405004CDB29 /* ProfileViewController.swift */,
 				EDA244A02ACE5E60005496A4 /* NavigationViewController.swift */,
+				ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -261,10 +267,12 @@
 				ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */,
 				ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */,
 				ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */,
+				ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */,
 				EDA244A12ACE5E60005496A4 /* NavigationViewController.swift in Sources */,
 				EDC8453D2AB15A36001E1918 /* SceneDelegate.swift in Sources */,
 				ED3CEAE62AC6185000BFC1F8 /* RealmService.swift in Sources */,
 				ED724ACB2ACD28BF0009CBA6 /* UIViewExtension.swift in Sources */,
+				ED0F961B2AD4F7AB00A76FE5 /* MapSerchViewController.swift in Sources */,
 				ED3CEAE42AC6171200BFC1F8 /* Employee.swift in Sources */,
 				EDC845522AB15CB4001E1918 /* GragientView.swift in Sources */,
 				ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */,

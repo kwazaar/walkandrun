@@ -559,6 +559,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <connections>
+                                            <segue destination="VHU-17-CzB" kind="show" id="XGM-6c-fBM"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfR-9F-jef">
                                         <rect key="frame" x="219.33333333333337" y="360" width="143.66666666666663" height="148"/>
@@ -604,6 +607,55 @@
             </objects>
             <point key="canvasLocation" x="6996" y="4"/>
         </scene>
+        <!--Map Serch View Controller-->
+        <scene sceneID="gDJ-LT-xY2">
+            <objects>
+                <viewController storyboardIdentifier="MapSerchViewController" id="VHU-17-CzB" customClass="MapSerchViewController" customModule="WalkAndRunTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J8P-Cl-W6j">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwA-X3-v9F">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3a-pY-Gz6">
+                                <rect key="frame" x="20" y="772" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ca6-lc-cGb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Построить маршрут">
+                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" name="AccentColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showRoute:" destination="VHU-17-CzB" eventType="touchUpInside" id="uda-gq-Zg6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7gl-mU-boa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HwA-X3-v9F" firstAttribute="bottom" secondItem="7gl-mU-boa" secondAttribute="bottom" id="57C-Ub-f2y"/>
+                            <constraint firstItem="7gl-mU-boa" firstAttribute="trailing" secondItem="M3a-pY-Gz6" secondAttribute="trailing" constant="20" id="GcM-dO-KHJ"/>
+                            <constraint firstItem="HwA-X3-v9F" firstAttribute="top" secondItem="7gl-mU-boa" secondAttribute="top" id="ODr-9Y-h4S"/>
+                            <constraint firstItem="7gl-mU-boa" firstAttribute="bottom" secondItem="M3a-pY-Gz6" secondAttribute="bottom" constant="20" id="OgU-Tm-KHa"/>
+                            <constraint firstItem="HwA-X3-v9F" firstAttribute="trailing" secondItem="7gl-mU-boa" secondAttribute="trailing" id="Xhm-u5-UU5"/>
+                            <constraint firstItem="HwA-X3-v9F" firstAttribute="leading" secondItem="7gl-mU-boa" secondAttribute="leading" id="fjL-Tg-rPb"/>
+                            <constraint firstItem="M3a-pY-Gz6" firstAttribute="leading" secondItem="7gl-mU-boa" secondAttribute="leading" constant="20" id="mem-RO-faf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="LwC-FV-ZEg"/>
+                    <connections>
+                        <outlet property="mapView" destination="HwA-X3-v9F" id="dFi-hZ-4HN"/>
+                        <outlet property="serchButton" destination="M3a-pY-Gz6" id="Ix3-ex-JVC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yKH-Rq-uic" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6994.6564885496182" y="-664.08450704225356"/>
+        </scene>
         <!--Navigation View Controller-->
         <scene sceneID="Qtx-r0-VNF">
             <objects>
@@ -622,24 +674,56 @@
                                     <constraint firstAttribute="height" constant="50" id="hCN-gl-0Xf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Начать маршрут">
+                                    <color key="baseForegroundColor" white="0.31257971940000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" name="AccentColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KuX-o5-iVR">
+                                <rect key="frame" x="20" y="59" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="phZ-Se-lyh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BE-Bm-hjQ">
+                                <rect key="frame" x="287" y="67" width="74" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="PHb-aO-Z0Y"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Поиск">
+                                    <color key="baseForegroundColor" white="0.2569355867" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" name="AccentColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="serchButton:" destination="AUD-Cd-iSq" eventType="touchUpInside" id="tze-kx-vNk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y6S-ui-7z7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tod-1B-5wJ" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" constant="20" id="6Iv-3m-EhH"/>
+                            <constraint firstItem="KuX-o5-iVR" firstAttribute="top" secondItem="Y6S-ui-7z7" secondAttribute="top" id="7Nj-e1-1eC"/>
+                            <constraint firstItem="KuX-o5-iVR" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" constant="20" id="N70-AD-isb"/>
+                            <constraint firstItem="4BE-Bm-hjQ" firstAttribute="leading" secondItem="KuX-o5-iVR" secondAttribute="trailing" constant="-86" id="TXO-2F-zZT"/>
+                            <constraint firstItem="Y6S-ui-7z7" firstAttribute="trailing" secondItem="KuX-o5-iVR" secondAttribute="trailing" constant="20" id="VXZ-Xc-csB"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" id="ZaP-Er-dVg"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="trailing" secondItem="Y6S-ui-7z7" secondAttribute="trailing" id="eN5-Z2-6DP"/>
                             <constraint firstItem="Y6S-ui-7z7" firstAttribute="trailing" secondItem="tod-1B-5wJ" secondAttribute="trailing" constant="20" id="pyQ-xq-Ie0"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="top" secondItem="Yyf-oN-mVH" secondAttribute="top" id="sp4-yC-zfs"/>
                             <constraint firstAttribute="bottom" secondItem="2VM-gK-xMW" secondAttribute="bottom" id="ulN-sn-J3N"/>
+                            <constraint firstItem="4BE-Bm-hjQ" firstAttribute="top" secondItem="Y6S-ui-7z7" secondAttribute="top" constant="8" id="xIs-rQ-mwd"/>
                             <constraint firstAttribute="bottom" secondItem="tod-1B-5wJ" secondAttribute="bottom" constant="30" id="xQo-gB-mep"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NXo-31-7Yh"/>
                     <connections>
                         <outlet property="mapView" destination="2VM-gK-xMW" id="Zyy-Pm-DeN"/>
+                        <outlet property="serchTextField" destination="KuX-o5-iVR" id="K5F-z4-Kdz"/>
+                        <outlet property="startStopButton" destination="tod-1B-5wJ" id="9Bo-5l-97h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCb-Io-c2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -836,6 +920,9 @@
         <image name="Image" width="130" height="281.33334350585938"/>
         <image name="Image1" width="130" height="281.33334350585938"/>
         <image name="Image2" width="130" height="281.33334350585938"/>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="bgColor1">
             <color red="1" green="1" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

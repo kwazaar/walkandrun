@@ -12,18 +12,23 @@ import MapKit
 class NavigationViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var serchTextField: UITextField!
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         checkLocationEnabled()
         checkAutorization()
     }
     
+    @IBAction func serchButton(_ sender: UIButton) {
+      print("serch")
+    }
     func checkLocationEnabled() {
         DispatchQueue.global().async {
             if CLLocationManager.locationServicesEnabled() {
@@ -79,12 +84,14 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
         
         present(alert, animated: true, completion: nil)
     }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last?.coordinate {
             let region = MKCoordinateRegion(center: location, latitudinalMeters: 5000, longitudinalMeters: 5000)
             mapView.setRegion(region, animated: true)
         }
     }
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkAutorization()
     }
