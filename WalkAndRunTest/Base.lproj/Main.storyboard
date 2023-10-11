@@ -518,7 +518,9 @@
                                             <constraint firstAttribute="height" constant="150" id="u1n-uy-3ic"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Погода"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Погода">
+                                            <color key="baseBackgroundColor" name="buttonColor1"/>
+                                        </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eob-9S-cQu">
                                         <rect key="frame" x="206.66666666666663" y="180" width="156.33333333333337" height="150"/>
@@ -526,7 +528,9 @@
                                             <constraint firstAttribute="height" constant="150" id="6aq-zn-jEZ"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Начать маршрут"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Начать маршрут">
+                                            <color key="baseBackgroundColor" name="buttonColor1"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="showNavigator:" destination="a6D-l9-oJV" eventType="touchUpInside" id="NBg-o5-cX8"/>
                                         </connections>
@@ -538,7 +542,9 @@
                                             <constraint firstAttribute="height" constant="150" id="vt0-57-9e7"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Профиль"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Профиль">
+                                            <color key="baseBackgroundColor" name="buttonColor1"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="showProfile:" destination="a6D-l9-oJV" eventType="touchUpInside" id="Tqr-rv-QIf"/>
                                         </connections>
@@ -553,12 +559,14 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swD-Z1-2Jq">
-                                        <rect key="frame" x="280" y="108" width="75" height="34"/>
+                                        <rect key="frame" x="281" y="108" width="74" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="Ihj-kK-mKg"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Поиск">
+                                            <color key="baseBackgroundColor" name="buttonColor1"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="VHU-17-CzB" kind="show" id="XGM-6c-fBM"/>
                                         </connections>
@@ -624,10 +632,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ca6-lc-cGb"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Построить маршрут">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <buttonConfiguration key="configuration" style="filled" title="Построить маршрут">
-                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" name="AccentColor"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" name="bgColor2"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="showRoute:" destination="VHU-17-CzB" eventType="touchUpInside" id="uda-gq-Zg6"/>
@@ -637,11 +648,15 @@
                         <viewLayoutGuide key="safeArea" id="7gl-mU-boa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="HwA-X3-v9F" firstAttribute="trailing" secondItem="7gl-mU-boa" secondAttribute="trailing" id="2z0-PO-xSC"/>
+                            <constraint firstItem="HwA-X3-v9F" firstAttribute="bottom" secondItem="7gl-mU-boa" secondAttribute="bottom" id="4Bv-cK-pMl"/>
                             <constraint firstItem="HwA-X3-v9F" firstAttribute="bottom" secondItem="7gl-mU-boa" secondAttribute="bottom" id="57C-Ub-f2y"/>
+                            <constraint firstItem="HwA-X3-v9F" firstAttribute="leading" secondItem="7gl-mU-boa" secondAttribute="leading" id="Blr-2g-edW"/>
                             <constraint firstItem="7gl-mU-boa" firstAttribute="trailing" secondItem="M3a-pY-Gz6" secondAttribute="trailing" constant="20" id="GcM-dO-KHJ"/>
                             <constraint firstItem="HwA-X3-v9F" firstAttribute="top" secondItem="7gl-mU-boa" secondAttribute="top" id="ODr-9Y-h4S"/>
                             <constraint firstItem="7gl-mU-boa" firstAttribute="bottom" secondItem="M3a-pY-Gz6" secondAttribute="bottom" constant="20" id="OgU-Tm-KHa"/>
                             <constraint firstItem="HwA-X3-v9F" firstAttribute="trailing" secondItem="7gl-mU-boa" secondAttribute="trailing" id="Xhm-u5-UU5"/>
+                            <constraint firstItem="HwA-X3-v9F" firstAttribute="top" secondItem="7gl-mU-boa" secondAttribute="top" id="exm-DP-zNR"/>
                             <constraint firstItem="HwA-X3-v9F" firstAttribute="leading" secondItem="7gl-mU-boa" secondAttribute="leading" id="fjL-Tg-rPb"/>
                             <constraint firstItem="M3a-pY-Gz6" firstAttribute="leading" secondItem="7gl-mU-boa" secondAttribute="leading" constant="20" id="mem-RO-faf"/>
                         </constraints>
