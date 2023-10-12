@@ -17,6 +17,11 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var serchButton: UIButton!
+    @IBOutlet weak var routeView: UIView!
+    
+    @IBOutlet weak var travelTime: UILabel!
+    @IBOutlet weak var distanceTravel: UILabel!
+    @IBOutlet weak var arrivalTime: UILabel!
     
     let locationManager = CLLocationManager()
     let searchController = UISearchController(searchResultsController: nil)
@@ -28,6 +33,7 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         super.viewDidLoad()
         
         serchButton.isHidden = true
+        routeView.isHidden = true
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gesture:)))
         mapView.addGestureRecognizer(longPressGesture)
         mapView.showsUserLocation = true
@@ -81,6 +87,7 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     @IBAction func showRoute(_ sender: UIButton) {
         drawRouteToMarker()
+        routeView.isHidden = false
     }
     
     @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
@@ -131,6 +138,32 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 }
                 self.mapView.addOverlay(route.polyline)
             }
+            let route = response.routes[0]
+            self.distanceTravel.text = String(format: "%.2f км", route.distance / 1000)
+            self.travelTime.text = self.formatTime(seconds: route.expectedTravelTime)
+            self.arrivalTime.text = self.getArrivalTime(second: route.expectedTravelTime)
+        }
+    }
+    func getArrivalTime(second: TimeInterval) -> String {
+        let date = Date()
+        let arrivalDate = date.addingTimeInterval(second)
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "HH:mm"
+        
+        let formatedTime = dateFormater.string(from: arrivalDate)
+        return formatedTime
+    }
+    
+    func formatTime(seconds: TimeInterval) -> String {
+        let dateFormater = DateComponentsFormatter()
+        dateFormater.unitsStyle = .abbreviated
+        dateFormater.allowedUnits = [.hour, .minute]
+        dateFormater.maximumUnitCount = 2
+        
+        if let formatedTime = dateFormater.string(from: seconds) {
+            return formatedTime
+        } else {
+            return "Не определено"
         }
     }
     
