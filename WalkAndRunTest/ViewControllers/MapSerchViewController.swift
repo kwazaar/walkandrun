@@ -7,8 +7,10 @@
 
 import UIKit
 import MapKit
+import CoreMotion
 
 class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         print("Update")
     }
@@ -22,12 +24,18 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet weak var travelTime: UILabel!
     @IBOutlet weak var distanceTravel: UILabel!
     @IBOutlet weak var arrivalTime: UILabel!
+    @IBOutlet weak var startRouteButton: UIButton!
+    @IBOutlet weak var constraintShowButton: NSLayoutConstraint!
     
     let locationManager = CLLocationManager()
     let searchController = UISearchController(searchResultsController: nil)
     var destinationCoordinate: CLLocationCoordinate2D?
     var anotationsArray = [MKPointAnnotation]()
     var userLocationSet = false
+    var userStartRoute = false
+    
+    let motionManager = CMMotionManager()
+    var currentRotation: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +55,42 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Поиск места"
         searchController.searchBar.delegate = self
+        startRouteButton.backgroundColor = UIColor(named: "buttonColor1")
+        
+        
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
+        startUpdateMotionManager()
+        
     }
+    
+    func startUpdateMotionManager() {
+        if motionManager.isDeviceMotionAvailable {
+            motionManager.deviceMotionUpdateInterval = 0.1
+            motionManager.startDeviceMotionUpdates(to: .main) { [weak self] data , error in
+                guard let attitude = data?.attitude else { return }
+                if self!.userStartRoute {
+                    self?.routeMap(rotation: attitude.yaw)
+                }
+            }
+        } else {
+            print("Гироскоп не активен")
+        }
+    }
+    
+    func routeMap(rotation: Double) {
+        
+        let degrees = rotation * (180 / .pi) + 45
+        
+            currentRotation = -degrees
+            mapView.camera.heading = currentRotation
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         performSearch()
     }
+    
     func performSearch() {
         
          guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
@@ -89,6 +126,29 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         drawRouteToMarker()
         routeView.isHidden = false
     }
+    
+    @IBAction func startRoute(_ sender: UIButton) {
+        
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+        mapView.setRegion(region, animated: true)
+        userStartRoute.toggle()
+        if userStartRoute {
+            startRouteButton.setTitle("Окончить маршрут", for: .normal)
+            startRouteButton.backgroundColor = UIColor.red
+            constraintShowButton.constant = CGFloat(integerLiteral: -90)
+        } else {
+            constraintShowButton.constant = CGFloat(integerLiteral: 20)
+            routeView.isHidden = true
+            serchButton.isHidden = true
+            if !mapView.overlays.isEmpty, !mapView.annotations.isEmpty {
+                mapView.removeOverlay(mapView.overlays.first!)
+                mapView.removeAnnotations(anotationsArray)
+            }
+            startRouteButton.setTitle("Начать маршрут", for: .normal)
+            
+        }
+    }
+    
     
     @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
         if gesture.state == .began {

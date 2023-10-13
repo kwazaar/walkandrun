@@ -683,6 +683,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Начать маршрут">
                                             <color key="baseBackgroundColor" name="buttonColor1"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="startRoute:" destination="VHU-17-CzB" eventType="touchUpInside" id="6Xn-aa-ZgO"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOk-nD-Ut0">
                                         <rect key="frame" x="193" y="12" width="150" height="21"/>
@@ -744,10 +747,12 @@
                     <navigationItem key="navigationItem" id="LwC-FV-ZEg"/>
                     <connections>
                         <outlet property="arrivalTime" destination="DuF-0a-gI8" id="MXE-7e-8o0"/>
+                        <outlet property="constraintShowButton" destination="OgU-Tm-KHa" id="UyA-78-xdw"/>
                         <outlet property="distanceTravel" destination="VFz-aX-OwX" id="ymD-xx-YcW"/>
                         <outlet property="mapView" destination="HwA-X3-v9F" id="dFi-hZ-4HN"/>
                         <outlet property="routeView" destination="N3E-DC-FVg" id="Evj-8y-dKQ"/>
                         <outlet property="serchButton" destination="M3a-pY-Gz6" id="Ix3-ex-JVC"/>
+                        <outlet property="startRouteButton" destination="ApW-mv-jYr" id="W1a-0P-8Eg"/>
                         <outlet property="travelTime" destination="tOk-nD-Ut0" id="Hwb-LQ-4ec"/>
                     </connections>
                 </viewController>
