@@ -26,6 +26,7 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     @IBOutlet weak var arrivalTime: UILabel!
     @IBOutlet weak var startRouteButton: UIButton!
     @IBOutlet weak var constraintShowButton: NSLayoutConstraint!
+    @IBOutlet weak var textRoute: UILabel!
     
     let locationManager = CLLocationManager()
     let searchController = UISearchController(searchResultsController: nil)
@@ -55,7 +56,6 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Поиск места"
         searchController.searchBar.delegate = self
-        startRouteButton.backgroundColor = UIColor(named: "buttonColor1")
         
         
         navigationItem.searchController = searchController
@@ -81,7 +81,7 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     func routeMap(rotation: Double) {
         
-        let degrees = rotation * (180 / .pi) + 45
+        let degrees = rotation * (180 / .pi) + 35
         
             currentRotation = -degrees
             mapView.camera.heading = currentRotation
@@ -109,10 +109,8 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                  return
              }
              
-             // Удалить предыдущие аннотации на карте
              self.mapView.removeAnnotations(self.mapView.annotations)
              
-             // Добавить новые аннотации на карту на основе результатов поиска
              for item in response.mapItems {
                  let annotation = MKPointAnnotation()
                  annotation.coordinate = item.placemark.coordinate
@@ -134,12 +132,15 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         userStartRoute.toggle()
         if userStartRoute {
             startRouteButton.setTitle("Окончить маршрут", for: .normal)
-            startRouteButton.backgroundColor = UIColor.red
+            startRouteButton.setTitleColor(.orange, for: .normal)
             constraintShowButton.constant = CGFloat(integerLiteral: -90)
+            textRoute.isHidden = false
         } else {
             constraintShowButton.constant = CGFloat(integerLiteral: 20)
             routeView.isHidden = true
             serchButton.isHidden = true
+            textRoute.isHidden = true
+            startRouteButton.setTitleColor(.white, for: .normal)
             if !mapView.overlays.isEmpty, !mapView.annotations.isEmpty {
                 mapView.removeOverlay(mapView.overlays.first!)
                 mapView.removeAnnotations(anotationsArray)
@@ -198,10 +199,12 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 }
                 self.mapView.addOverlay(route.polyline)
             }
-            let route = response.routes[0]
+            let route: MKRoute = response.routes[0]
             self.distanceTravel.text = String(format: "%.2f км", route.distance / 1000)
             self.travelTime.text = self.formatTime(seconds: route.expectedTravelTime)
             self.arrivalTime.text = self.getArrivalTime(second: route.expectedTravelTime)
+            guard let nextStep = route.steps.first else { return }
+            self.textRoute.text = nextStep.instructions
         }
     }
     func getArrivalTime(second: TimeInterval) -> String {
@@ -251,6 +254,9 @@ class MapSerchViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                 mapView.setRegion(region, animated: true)
             }
             userLocationSet = true
+        }
+        if userStartRoute {
+            drawRouteToMarker()
         }
     }
 

@@ -21,9 +21,9 @@ class MainViewController: UIViewController {
     
     @IBAction func showProfile(_ sender: UIButton) {
         
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
-                self.navigationController?.pushViewController(vc, animated: true)                
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        self.navigationController?.pushViewController(vc, animated: true)
 
 
     }
@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
         
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "NavigationViewController")
+        let vc = storyboard.instantiateViewController(identifier: "NavigationViewController") as! NavigationViewController
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

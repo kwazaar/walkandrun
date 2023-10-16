@@ -726,6 +726,15 @@
                                     <constraint firstItem="ApW-mv-jYr" firstAttribute="top" secondItem="txH-2R-Kaq" secondAttribute="bottom" constant="28" id="zKy-7B-xuj"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXf-dX-jsl">
+                                <rect key="frame" x="20" y="491" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Cjg-ZF-BPE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7gl-mU-boa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -735,10 +744,13 @@
                             <constraint firstItem="HwA-X3-v9F" firstAttribute="top" secondItem="7gl-mU-boa" secondAttribute="top" id="5o1-Cw-ey7"/>
                             <constraint firstItem="HwA-X3-v9F" firstAttribute="leading" secondItem="7gl-mU-boa" secondAttribute="leading" id="Blr-2g-edW"/>
                             <constraint firstItem="N3E-DC-FVg" firstAttribute="leading" secondItem="M3a-pY-Gz6" secondAttribute="leading" id="CYB-Gq-7zv"/>
+                            <constraint firstItem="rXf-dX-jsl" firstAttribute="leading" secondItem="7gl-mU-boa" secondAttribute="leading" constant="20" id="ECT-av-i2S"/>
                             <constraint firstItem="7gl-mU-boa" firstAttribute="trailing" secondItem="M3a-pY-Gz6" secondAttribute="trailing" constant="20" id="GcM-dO-KHJ"/>
+                            <constraint firstItem="N3E-DC-FVg" firstAttribute="top" secondItem="rXf-dX-jsl" secondAttribute="bottom" constant="27" id="IkE-md-zGy"/>
                             <constraint firstItem="7gl-mU-boa" firstAttribute="bottom" secondItem="M3a-pY-Gz6" secondAttribute="bottom" constant="20" id="OgU-Tm-KHa"/>
                             <constraint firstItem="N3E-DC-FVg" firstAttribute="trailing" secondItem="M3a-pY-Gz6" secondAttribute="trailing" id="V6h-cb-c9d"/>
                             <constraint firstItem="7gl-mU-boa" firstAttribute="trailing" secondItem="N3E-DC-FVg" secondAttribute="trailing" constant="20" id="WS3-Ln-3RJ"/>
+                            <constraint firstItem="7gl-mU-boa" firstAttribute="trailing" secondItem="rXf-dX-jsl" secondAttribute="trailing" constant="20" id="XaQ-Cn-wtk"/>
                             <constraint firstItem="M3a-pY-Gz6" firstAttribute="top" secondItem="N3E-DC-FVg" secondAttribute="bottom" constant="22" id="ebf-F2-MUV"/>
                             <constraint firstItem="N3E-DC-FVg" firstAttribute="height" secondItem="M3a-pY-Gz6" secondAttribute="height" multiplier="3.64" id="me3-WW-QEX"/>
                             <constraint firstItem="M3a-pY-Gz6" firstAttribute="leading" secondItem="7gl-mU-boa" secondAttribute="leading" constant="20" id="mem-RO-faf"/>
@@ -753,6 +765,7 @@
                         <outlet property="routeView" destination="N3E-DC-FVg" id="Evj-8y-dKQ"/>
                         <outlet property="serchButton" destination="M3a-pY-Gz6" id="Ix3-ex-JVC"/>
                         <outlet property="startRouteButton" destination="ApW-mv-jYr" id="W1a-0P-8Eg"/>
+                        <outlet property="textRoute" destination="rXf-dX-jsl" id="coX-xq-e28"/>
                         <outlet property="travelTime" destination="tOk-nD-Ut0" id="Hwb-LQ-4ec"/>
                     </connections>
                 </viewController>
@@ -801,9 +814,6 @@
                                     <color key="baseForegroundColor" white="0.2569355867" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" name="AccentColor"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="serchButton:" destination="AUD-Cd-iSq" eventType="touchUpInside" id="tze-kx-vNk"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y6S-ui-7z7"/>
@@ -824,11 +834,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NXo-31-7Yh"/>
-                    <connections>
-                        <outlet property="mapView" destination="2VM-gK-xMW" id="Zyy-Pm-DeN"/>
-                        <outlet property="serchTextField" destination="KuX-o5-iVR" id="K5F-z4-Kdz"/>
-                        <outlet property="startStopButton" destination="tod-1B-5wJ" id="9Bo-5l-97h"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCb-Io-c2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
