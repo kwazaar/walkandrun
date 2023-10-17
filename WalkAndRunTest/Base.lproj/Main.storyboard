@@ -785,55 +785,38 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tod-1B-5wJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tod-1B-5wJ">
                                 <rect key="frame" x="20" y="772" width="353" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hCN-gl-0Xf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Начать маршрут">
-                                    <color key="baseForegroundColor" white="0.31257971940000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" name="AccentColor"/>
                                 </buttonConfiguration>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KuX-o5-iVR">
-                                <rect key="frame" x="20" y="59" width="353" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="phZ-Se-lyh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BE-Bm-hjQ">
-                                <rect key="frame" x="287" y="67" width="74" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="PHb-aO-Z0Y"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Поиск">
-                                    <color key="baseForegroundColor" white="0.2569355867" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" name="AccentColor"/>
-                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startRoute:" destination="AUD-Cd-iSq" eventType="touchUpInside" id="Gjp-ou-DkR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y6S-ui-7z7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tod-1B-5wJ" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" constant="20" id="6Iv-3m-EhH"/>
-                            <constraint firstItem="KuX-o5-iVR" firstAttribute="top" secondItem="Y6S-ui-7z7" secondAttribute="top" id="7Nj-e1-1eC"/>
-                            <constraint firstItem="KuX-o5-iVR" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" constant="20" id="N70-AD-isb"/>
-                            <constraint firstItem="4BE-Bm-hjQ" firstAttribute="leading" secondItem="KuX-o5-iVR" secondAttribute="trailing" constant="-86" id="TXO-2F-zZT"/>
-                            <constraint firstItem="Y6S-ui-7z7" firstAttribute="trailing" secondItem="KuX-o5-iVR" secondAttribute="trailing" constant="20" id="VXZ-Xc-csB"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" id="ZaP-Er-dVg"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="trailing" secondItem="Y6S-ui-7z7" secondAttribute="trailing" id="eN5-Z2-6DP"/>
                             <constraint firstItem="Y6S-ui-7z7" firstAttribute="trailing" secondItem="tod-1B-5wJ" secondAttribute="trailing" constant="20" id="pyQ-xq-Ie0"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="top" secondItem="Yyf-oN-mVH" secondAttribute="top" id="sp4-yC-zfs"/>
                             <constraint firstAttribute="bottom" secondItem="2VM-gK-xMW" secondAttribute="bottom" id="ulN-sn-J3N"/>
-                            <constraint firstItem="4BE-Bm-hjQ" firstAttribute="top" secondItem="Y6S-ui-7z7" secondAttribute="top" constant="8" id="xIs-rQ-mwd"/>
                             <constraint firstAttribute="bottom" secondItem="tod-1B-5wJ" secondAttribute="bottom" constant="30" id="xQo-gB-mep"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NXo-31-7Yh"/>
+                    <connections>
+                        <outlet property="mapView" destination="2VM-gK-xMW" id="lGu-K5-4Te"/>
+                        <outlet property="startRouteButton" destination="tod-1B-5wJ" id="hyU-Al-TnH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WCb-Io-c2S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
