@@ -17,6 +17,7 @@
 		ED32F4652AB993B4004CDB29 /* ParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */; };
 		ED32F4672AB993E6004CDB29 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4662AB993E6004CDB29 /* MainViewController.swift */; };
 		ED32F4692AB99405004CDB29 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4682AB99405004CDB29 /* ProfileViewController.swift */; };
+		ED3ABDBB2ADF7A7A0049EB13 /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3ABDBA2ADF7A7A0049EB13 /* RouteModel.swift */; };
 		ED3CEAE02AC612E000BFC1F8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = ED3CEADF2AC612E000BFC1F8 /* Realm */; };
 		ED3CEAE22AC612E000BFC1F8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ED3CEAE12AC612E000BFC1F8 /* RealmSwift */; };
 		ED3CEAE42AC6171200BFC1F8 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CEAE32AC6171200BFC1F8 /* Employee.swift */; };
@@ -48,6 +49,7 @@
 		ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersViewController.swift; sourceTree = "<group>"; };
 		ED32F4662AB993E6004CDB29 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		ED32F4682AB99405004CDB29 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		ED3ABDBA2ADF7A7A0049EB13 /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
 		ED3CEAE32AC6171200BFC1F8 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		ED3CEAE52AC6185000BFC1F8 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		ED724ACA2ACD28BF0009CBA6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				ED1B78982ABCAB2C009F09D4 /* AppUser.swift */,
 				ED3CEAE32AC6171200BFC1F8 /* Employee.swift */,
 				ED0F96182AD4F44A00A76FE5 /* MapPin.swift */,
+				ED3ABDBA2ADF7A7A0049EB13 /* RouteModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				EDC845522AB15CB4001E1918 /* GragientView.swift in Sources */,
 				ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */,
 				ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */,
+				ED3ABDBB2ADF7A7A0049EB13 /* RouteModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -799,22 +799,87 @@
                                     <action selector="startRoute:" destination="AUD-Cd-iSq" eventType="touchUpInside" id="Gjp-ou-DkR"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeQ-QK-TUY">
+                                <rect key="frame" x="20" y="79" width="353" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Длительность" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ps-h0-LQI">
+                                        <rect key="frame" x="120" y="8" width="112" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaE-gA-d7Y">
+                                        <rect key="frame" x="113.66666666666666" y="37" width="126" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дистанция" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVU-Qk-gGG">
+                                        <rect key="frame" x="34" y="74" width="87" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Средний темп" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-Ag-RCG">
+                                        <rect key="frame" x="198" y="73" width="125" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 км" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ1-MU-PNd">
+                                        <rect key="frame" x="34" y="103" width="75" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 мин/км" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-1i-cPt">
+                                        <rect key="frame" x="198" y="102" width="125" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="gBn-Ag-RCG" firstAttribute="top" secondItem="xaE-gA-d7Y" secondAttribute="bottom" id="5V8-45-ZCQ"/>
+                                    <constraint firstItem="xQ1-MU-PNd" firstAttribute="top" secondItem="vVU-Qk-gGG" secondAttribute="bottom" constant="8" symbolic="YES" id="D6n-MF-2r8"/>
+                                    <constraint firstItem="0hY-1i-cPt" firstAttribute="top" secondItem="gBn-Ag-RCG" secondAttribute="bottom" constant="8" symbolic="YES" id="KG4-q7-hGS"/>
+                                    <constraint firstItem="xQ1-MU-PNd" firstAttribute="leading" secondItem="vVU-Qk-gGG" secondAttribute="leading" id="Me0-Jf-j8v"/>
+                                    <constraint firstAttribute="trailing" secondItem="gBn-Ag-RCG" secondAttribute="trailing" constant="30" id="Sgd-wV-gQH"/>
+                                    <constraint firstItem="xaE-gA-d7Y" firstAttribute="top" secondItem="MeQ-QK-TUY" secondAttribute="top" constant="37" id="Vq9-FH-4LJ"/>
+                                    <constraint firstItem="xaE-gA-d7Y" firstAttribute="centerX" secondItem="MeQ-QK-TUY" secondAttribute="centerX" id="X1W-dB-Yiu"/>
+                                    <constraint firstItem="0hY-1i-cPt" firstAttribute="leading" secondItem="gBn-Ag-RCG" secondAttribute="leading" id="Zga-zj-gJD"/>
+                                    <constraint firstItem="0hY-1i-cPt" firstAttribute="trailing" secondItem="gBn-Ag-RCG" secondAttribute="trailing" id="aIm-VH-1KT"/>
+                                    <constraint firstItem="vVU-Qk-gGG" firstAttribute="leading" secondItem="MeQ-QK-TUY" secondAttribute="leading" constant="34" id="hRl-4Q-i1Q"/>
+                                    <constraint firstItem="0hY-1i-cPt" firstAttribute="trailing" secondItem="gBn-Ag-RCG" secondAttribute="trailing" id="kgo-na-z4W"/>
+                                    <constraint firstItem="vVU-Qk-gGG" firstAttribute="top" secondItem="MeQ-QK-TUY" secondAttribute="top" constant="74" id="mbv-8A-r2c"/>
+                                    <constraint firstItem="3ps-h0-LQI" firstAttribute="top" secondItem="MeQ-QK-TUY" secondAttribute="top" constant="8" id="s1X-mc-eDd"/>
+                                    <constraint firstAttribute="height" constant="150" id="uei-AW-42z"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y6S-ui-7z7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tod-1B-5wJ" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" constant="20" id="6Iv-3m-EhH"/>
+                            <constraint firstItem="MeQ-QK-TUY" firstAttribute="top" secondItem="Y6S-ui-7z7" secondAttribute="top" constant="20" id="9Vj-vz-Rm7"/>
+                            <constraint firstItem="MeQ-QK-TUY" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" constant="20" id="KWU-is-GuL"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="leading" secondItem="Y6S-ui-7z7" secondAttribute="leading" id="ZaP-Er-dVg"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="trailing" secondItem="Y6S-ui-7z7" secondAttribute="trailing" id="eN5-Z2-6DP"/>
                             <constraint firstItem="Y6S-ui-7z7" firstAttribute="trailing" secondItem="tod-1B-5wJ" secondAttribute="trailing" constant="20" id="pyQ-xq-Ie0"/>
                             <constraint firstItem="2VM-gK-xMW" firstAttribute="top" secondItem="Yyf-oN-mVH" secondAttribute="top" id="sp4-yC-zfs"/>
                             <constraint firstAttribute="bottom" secondItem="2VM-gK-xMW" secondAttribute="bottom" id="ulN-sn-J3N"/>
                             <constraint firstAttribute="bottom" secondItem="tod-1B-5wJ" secondAttribute="bottom" constant="30" id="xQo-gB-mep"/>
+                            <constraint firstItem="Y6S-ui-7z7" firstAttribute="trailing" secondItem="MeQ-QK-TUY" secondAttribute="trailing" constant="20" id="xe2-6U-lhe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NXo-31-7Yh"/>
                     <connections>
+                        <outlet property="distanceTravaling" destination="xQ1-MU-PNd" id="pE6-oN-4N3"/>
+                        <outlet property="infoRouteView" destination="MeQ-QK-TUY" id="QOW-zV-edc"/>
                         <outlet property="mapView" destination="2VM-gK-xMW" id="lGu-K5-4Te"/>
+                        <outlet property="mediumTemp" destination="0hY-1i-cPt" id="5j6-3V-lCS"/>
+                        <outlet property="runTimer" destination="xaE-gA-d7Y" id="sP4-RF-m5F"/>
                         <outlet property="startRouteButton" destination="tod-1B-5wJ" id="hyU-Al-TnH"/>
                     </connections>
                 </viewController>

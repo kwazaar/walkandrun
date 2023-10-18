@@ -7,17 +7,29 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 
 class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    var realmService = RealmService()
+    var routeModel = RouteModel()
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startRouteButton: UIButton!
+    
+    @IBOutlet weak var infoRouteView: UIView!
+    @IBOutlet weak var runTimer: UILabel!
+    @IBOutlet weak var distanceTravaling: UILabel!
+    @IBOutlet weak var mediumTemp: UILabel!
     
     let locationManager = CLLocationManager()
     var setLocation = true
     var startRoute = true
     var routeCoordinates: [CLLocationCoordinate2D] = []
+    var timer = Timer()
+    var seconds = 0
+    var isTimerRunning = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +53,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
 
             startRouteButton.setTitle("Окончить маршрут", for: .normal)
             startRoute = false
+            startTimer()
         } else {
             let alert = UIAlertController(title: "Вы действительно хотите закончить маршрут?", message: "После завершения маршрута он сохраниться в историю маршрутов", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Завершить", style: .default) { _ in
@@ -48,6 +61,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
                 self.routeCoordinates = []
                 self.mapView.removeOverlays(self.mapView.overlays)
                 self.startRoute = true
+                self.stopTimer()
             }
             let cancelAction = UIAlertAction(title: "Нет", style: .destructive)
             
@@ -151,6 +165,36 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkAutorization()
+    }
+    
+    @objc func updateTimer() {
+        seconds += 1
+        runTimer.text = formatTime(seconds: Double(seconds))
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        isTimerRunning = true
+        
+    }
+    
+    func stopTimer() {
+        timer.invalidate()
+        seconds = 0
+        runTimer.text = "0:00:00"
+        isTimerRunning = false
+    }
+    func formatTime(seconds: TimeInterval) -> String {
+        let dateFormater = DateComponentsFormatter()
+        dateFormater.unitsStyle = .positional
+        dateFormater.allowedUnits = [.hour, .minute, .second]
+        
+        let timeInterval = TimeInterval(seconds)
+        if let formatedTime = dateFormater.string(from: timeInterval) {
+            return formatedTime
+        } else {
+            return "Не определено"
+        }
     }
 
 }
