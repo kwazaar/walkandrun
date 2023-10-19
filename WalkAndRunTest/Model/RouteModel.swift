@@ -14,11 +14,9 @@ import RealmSwift
 final class RouteModel: Object {
     
     @Persisted var id: String = UUID().uuidString
-    @Persisted var routeStep = List<Step>()
-    @Persisted var time: TimeInterval = 0.00
+    var routeStep = [CLLocationCoordinate2D]()
+    @Persisted var time: Int = 0
     @Persisted var distance: String = ""
-    @Persisted var startPoint: Point?
-    @Persisted var endPoint: Point?
     
     
     override class func primaryKey() -> String? {

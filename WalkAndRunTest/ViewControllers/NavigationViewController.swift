@@ -57,7 +57,15 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
         } else {
             let alert = UIAlertController(title: "Вы действительно хотите закончить маршрут?", message: "После завершения маршрута он сохраниться в историю маршрутов", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Завершить", style: .default) { _ in
-                //Cохраняем координаты в историю
+                self.routeModel.routeStep = self.routeCoordinates
+                self.routeModel.time = self.seconds
+                
+                do {
+                    try? self.realmService.localRealm.write {
+                        self.realmService.localRealm.add(self.routeModel)
+                    }
+                }
+                
                 self.routeCoordinates = []
                 self.mapView.removeOverlays(self.mapView.overlays)
                 self.startRoute = true
