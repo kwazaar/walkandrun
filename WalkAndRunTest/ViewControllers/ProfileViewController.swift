@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -21,14 +22,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var weight: UILabel!
     @IBOutlet weak var imagePhoto: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var textLable: UILabel!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
@@ -52,6 +50,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             
     }
 
+ 
+    @IBAction func testPrintButton(_ sender: UIButton) {
+        print(routes.first?.routeStep.first?.latitude, routes.first?.routeStep.first?.longitude)
+    }
     
     @IBAction func logOut(_ sender: UIButton) {
         AuthService.shared.singOut()
@@ -65,8 +67,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = String(routes[indexPath.row].time)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell {
+            let route = routes[indexPath.row]
+            let region = MKCoordinateRegion(center: route.routeStep.first ?? CLLocationCoordinate2D(latitude: 55.755811, longitude: 37.617617), latitudinalMeters: 10000, longitudinalMeters: 10000)
+            cell.mapView.setRegion(region, animated: true)
+            cell.timeLable.text = String(route.time)
+            cell.distanceLable.text = route.distance
             return cell
+        }
+            return CustomTableViewCell()
     }
 }

@@ -1000,16 +1000,62 @@
                                     <constraint firstAttribute="height" constant="329" id="UPX-iN-Vci"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RouteCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="124" id="Qbi-FN-aSJ" customClass="Cell">
-                                        <rect key="frame" x="0.0" y="50" width="353" height="124"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomTableViewCell" rowHeight="201" id="kqR-T0-gqp" customClass="CustomTableViewCell" customModule="WalkAndRunTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="353" height="201"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qbi-FN-aSJ" id="pZm-P7-o2Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="124"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kqR-T0-gqp" id="Me6-be-jC4">
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="201"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vhh-eg-QB0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="201"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="ZBf-Wh-kKM"/>
+                                                        <constraint firstAttribute="width" constant="200" id="c9r-og-NTG"/>
+                                                    </constraints>
+                                                    <standardMapConfiguration key="preferredConfiguration"/>
+                                                </mapView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkF-6P-0bF">
+                                                    <rect key="frame" x="144.66666666666666" y="31" width="64" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp8-Pu-mop">
+                                                    <rect key="frame" x="134.33333333333334" y="127" width="84.666666666666657" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RkF-6P-0bF" firstAttribute="top" secondItem="Me6-be-jC4" secondAttribute="topMargin" constant="20" id="157-bn-fjn"/>
+                                                <constraint firstItem="RkF-6P-0bF" firstAttribute="centerX" secondItem="Me6-be-jC4" secondAttribute="centerX" id="Aq7-FF-NGs"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vhh-eg-QB0" secondAttribute="trailing" id="LSo-dP-hPR"/>
+                                                <constraint firstItem="Bp8-Pu-mop" firstAttribute="centerX" secondItem="Me6-be-jC4" secondAttribute="centerX" id="YEL-TA-knr"/>
+                                                <constraint firstItem="Vhh-eg-QB0" firstAttribute="leading" secondItem="Me6-be-jC4" secondAttribute="leading" id="ZtJ-BD-ss1"/>
+                                                <constraint firstItem="Vhh-eg-QB0" firstAttribute="top" secondItem="Me6-be-jC4" secondAttribute="top" id="mCm-c7-0uO"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vhh-eg-QB0" secondAttribute="bottom" id="pjl-8Y-qxz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Bp8-Pu-mop" secondAttribute="bottom" constant="20" id="r4s-o7-u6G"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="distanceLable" destination="Bp8-Pu-mop" id="DY4-q3-EAa"/>
+                                            <outlet property="mapView" destination="Vhh-eg-QB0" id="90u-AU-MaX"/>
+                                            <outlet property="timeLable" destination="RkF-6P-0bF" id="aIG-wW-jn3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8h-IF-ADC">
+                                <rect key="frame" x="20" y="446" width="151" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Test Print Button"/>
+                                <connections>
+                                    <action selector="testPrintButton:" destination="p1y-eu-m5i" eventType="touchUpInside" id="NZs-Kr-kmU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kMp-1o-Urh"/>
                         <color key="backgroundColor" name="bgColor1"/>

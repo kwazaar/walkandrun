@@ -12,6 +12,7 @@
 		ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B78982ABCAB2C009F09D4 /* AppUser.swift */; };
 		ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */; };
 		ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */; };
+		ED2575B42AE22AB7008FC204 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2575B32AE22AB7008FC204 /* CustomTableViewCell.swift */; };
 		ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */; };
 		ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4602AB992FB004CDB29 /* RegViewController.swift */; };
 		ED32F4652AB993B4004CDB29 /* ParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */; };
@@ -44,6 +45,7 @@
 		ED1B78982ABCAB2C009F09D4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		ED2575B32AE22AB7008FC204 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		ED32F4602AB992FB004CDB29 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				ED32F4682AB99405004CDB29 /* ProfileViewController.swift */,
 				EDA244A02ACE5E60005496A4 /* NavigationViewController.swift */,
 				ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */,
+				ED2575B32AE22AB7008FC204 /* CustomTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				EDC8453B2AB15A36001E1918 /* AppDelegate.swift in Sources */,
 				ED32F4692AB99405004CDB29 /* ProfileViewController.swift in Sources */,
 				ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */,
+				ED2575B42AE22AB7008FC204 /* CustomTableViewCell.swift in Sources */,
 				ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */,
 				ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */,
 				ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */,

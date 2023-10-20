@@ -63,10 +63,11 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
                 do {
                     try? self.realmService.localRealm.write {
                         self.realmService.localRealm.add(self.routeModel)
+                        self.routeCoordinates = []
                     }
                 }
                 
-                self.routeCoordinates = []
+                
                 self.mapView.removeOverlays(self.mapView.overlays)
                 self.startRoute = true
                 self.stopTimer()
