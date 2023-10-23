@@ -13,10 +13,12 @@ import RealmSwift
 
 final class RouteModel: Object {
     
-    @Persisted var id: String = UUID().uuidString
-    var routeStep = [CLLocationCoordinate2D]()
-    @Persisted var time: Int = 0
-    @Persisted var distance: String = ""
+    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var mail: String = ""
+    @objc dynamic var date: Data = Data()
+    var route = List<Step>()
+    @objc dynamic var time: Int = 0
+    @objc dynamic var distance: String = ""
     
     
     override class func primaryKey() -> String? {
@@ -27,14 +29,14 @@ final class RouteModel: Object {
 
 final class Step: Object {
     
-    @objc dynamic var firstPoint: Point?
-    @objc dynamic var lastPoint: Point?
-    
-}
-
-final class Point: Object {
-    
     @objc dynamic var latitude: Double = 0.0
     @objc dynamic var longitude: Double = 0.0
     
+    convenience init(latitude: Double, longitude: Double) {
+        self.init()
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
 }
+

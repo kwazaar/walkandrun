@@ -12,7 +12,6 @@
 		ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B78982ABCAB2C009F09D4 /* AppUser.swift */; };
 		ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */; };
 		ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */; };
-		ED2575B42AE22AB7008FC204 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2575B32AE22AB7008FC204 /* CustomTableViewCell.swift */; };
 		ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */; };
 		ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4602AB992FB004CDB29 /* RegViewController.swift */; };
 		ED32F4652AB993B4004CDB29 /* ParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */; };
@@ -36,6 +35,7 @@
 		EDE22C242ABA190B0061710E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = EDE22C232ABA190B0061710E /* FirebaseDatabase */; };
 		EDE22C262ABA190B0061710E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EDE22C252ABA190B0061710E /* FirebaseFirestore */; };
 		EDE22C282ABA190B0061710E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EDE22C272ABA190B0061710E /* FirebaseStorage */; };
+		EDE47D262AE60D3E00A313DA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE47D252AE60D3E00A313DA /* CustomTableViewCell.swift */; };
 		EDEFCD362AB8688600B1C624 /* SerchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEFCD352AB8688600B1C624 /* SerchViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,6 @@
 		ED1B78982ABCAB2C009F09D4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		ED2575B32AE22AB7008FC204 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		ED32F4602AB992FB004CDB29 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		EDC8454B2AB15A38001E1918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDC845512AB15CB4001E1918 /* GragientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GragientView.swift; sourceTree = "<group>"; };
 		EDE22C1E2ABA15640061710E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EDE47D252AE60D3E00A313DA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EDEFCD352AB8688600B1C624 /* SerchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,8 +122,8 @@
 				ED32F4662AB993E6004CDB29 /* MainViewController.swift */,
 				ED32F4682AB99405004CDB29 /* ProfileViewController.swift */,
 				EDA244A02ACE5E60005496A4 /* NavigationViewController.swift */,
+				EDE47D252AE60D3E00A313DA /* CustomTableViewCell.swift */,
 				ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */,
-				ED2575B32AE22AB7008FC204 /* CustomTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 				EDC8453B2AB15A36001E1918 /* AppDelegate.swift in Sources */,
 				ED32F4692AB99405004CDB29 /* ProfileViewController.swift in Sources */,
 				ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */,
-				ED2575B42AE22AB7008FC204 /* CustomTableViewCell.swift in Sources */,
+				EDE47D262AE60D3E00A313DA /* CustomTableViewCell.swift in Sources */,
 				ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */,
 				ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */,
 				ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */,

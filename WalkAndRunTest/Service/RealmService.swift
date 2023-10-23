@@ -12,4 +12,19 @@ final class RealmService {
     
     let localRealm = try! Realm()
     
+    func deleteAllObjectsFromRealm() {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+            print("All objects deleted from Realm.")
+        }
+    }
+    
+    func saveStep(step: [Step]) {
+        try! localRealm.write({
+            localRealm.add(step)
+            print("Add coordinate")
+        })
+    }
+    
 }

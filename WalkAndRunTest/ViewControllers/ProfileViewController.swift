@@ -8,11 +8,13 @@
 import UIKit
 import MapKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate {
     
     var employee = [Employee]()
     var realmService = RealmService()
     var routes = [RouteModel]()
+    var step = [Step]()
+    var arrayCoordinate = [CLLocationCoordinate2D]()
     
     @IBOutlet weak var nameLable: UILabel!
     @IBOutlet weak var lastName: UILabel!
@@ -45,6 +47,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         } else {
             tableView.isHidden = false
         }
+        step = realmService.localRealm.objects(Step.self).filter({ $0.latitude > 0
+        })
         
         
             
@@ -52,7 +56,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
  
     @IBAction func testPrintButton(_ sender: UIButton) {
-        print(routes.first?.routeStep.first?.latitude, routes.first?.routeStep.first?.longitude)
+//        if let route = routes.
+        print(routes.first?.route.first?.description, routes.first?.route.last?.description )
+//        Тут можно дешефровать структуру шагов 
     }
     
     @IBAction func logOut(_ sender: UIButton) {
@@ -69,12 +75,27 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell {
             let route = routes[indexPath.row]
-            let region = MKCoordinateRegion(center: route.routeStep.first ?? CLLocationCoordinate2D(latitude: 55.755811, longitude: 37.617617), latitudinalMeters: 10000, longitudinalMeters: 10000)
-            cell.mapView.setRegion(region, animated: true)
             cell.timeLable.text = String(route.time)
             cell.distanceLable.text = route.distance
+            let latitude = route.route.last?.latitude
+            let longitude = route.route.last?.longitude
+            cell.mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude ?? 53.1, longitude: longitude ?? 33.2), latitudinalMeters: 1000, longitudinalMeters: 1000), animated: false)
+            var coordinateRoute = [CLLocationCoordinate2D]()
+            for step in route.route {
+                coordinateRoute.append(CLLocationCoordinate2D(latitude: step.latitude, longitude: step.longitude))
+                
+                
+            }
+            
+            let polyline = MKPolyline(coordinates: coordinateRoute, count: coordinateRoute.count)
+            cell.mapView.addOverlay(polyline)
+            
+            
             return cell
         }
             return CustomTableViewCell()
     }
+
+
+    
 }

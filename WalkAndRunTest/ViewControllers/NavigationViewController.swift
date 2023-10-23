@@ -14,6 +14,8 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     var realmService = RealmService()
     var routeModel = RouteModel()
+    var route = List<Step>()
+    var user = RouteModel()
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startRouteButton: UIButton!
@@ -31,8 +33,10 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     var seconds = 0
     var isTimerRunning = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setLocation = true
         let userTrackingButton = MKUserTrackingButton(mapView: mapView)
         view.addSubview(userTrackingButton)
@@ -57,13 +61,14 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
         } else {
             let alert = UIAlertController(title: "Вы действительно хотите закончить маршрут?", message: "После завершения маршрута он сохраниться в историю маршрутов", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Завершить", style: .default) { _ in
-                self.routeModel.routeStep = self.routeCoordinates
+                
                 self.routeModel.time = self.seconds
+                self.routeModel.route = self.route
                 
                 do {
                     try? self.realmService.localRealm.write {
                         self.realmService.localRealm.add(self.routeModel)
-                        self.routeCoordinates = []
+                        self.route = List<Step>()
                     }
                 }
                 
@@ -143,8 +148,10 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last?.coordinate {
+            route.append(Step(latitude: location.latitude, longitude: location.longitude))
             if !startRoute {
                 routeCoordinates.append(location)
+                
                 drawRoute()
             }
             if setLocation {
