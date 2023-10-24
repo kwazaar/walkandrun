@@ -19,6 +19,8 @@ final class RouteModel: Object {
     var route = List<Step>()
     @objc dynamic var time: Int = 0
     @objc dynamic var distance: String = ""
+    var image = Data()
+    
     
     
     override class func primaryKey() -> String? {

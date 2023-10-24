@@ -41,7 +41,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.mail.text = user.email
             self.growth.text = user.growth
             self.weight.text = user.weight
-        routes = realmService.localRealm.objects(RouteModel.self).filter({ $0.time > 0 })
+        routes = realmService.localRealm.objects(RouteModel.self).filter({ $0.mail == user.email })
+        guard let route = routes.first else { return }
+        if let image = UIImage(data: route.image) {
+            self.imagePhoto = UIImageView(image: image)
+        } else {
+            print("No image")
+        }
+        
         if routes.count < 0 {
             tableView.isHidden = true
         } else {
@@ -57,7 +64,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
  
     @IBAction func testPrintButton(_ sender: UIButton) {
 //        if let route = routes.
-        print(routes.first?.route.first?.description, routes.first?.route.last?.description )
+        print(routes.first?.image)
 //        Тут можно дешефровать структуру шагов 
     }
     
@@ -77,19 +84,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let route = routes[indexPath.row]
             cell.timeLable.text = String(route.time)
             cell.distanceLable.text = route.distance
-            let latitude = route.route.last?.latitude
-            let longitude = route.route.last?.longitude
-            cell.mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude ?? 53.1, longitude: longitude ?? 33.2), latitudinalMeters: 1000, longitudinalMeters: 1000), animated: false)
-            var coordinateRoute = [CLLocationCoordinate2D]()
-            for step in route.route {
-                coordinateRoute.append(CLLocationCoordinate2D(latitude: step.latitude, longitude: step.longitude))
-                
-                
+            
+            if let image = UIImage(data: route.image) {
+                cell.imageRoute.image = image
+            } else {
+                cell.imageRoute.image = UIImage(named: "Image")
             }
-            
-            let polyline = MKPolyline(coordinates: coordinateRoute, count: coordinateRoute.count)
-            cell.mapView.addOverlay(polyline)
-            
             
             return cell
         }

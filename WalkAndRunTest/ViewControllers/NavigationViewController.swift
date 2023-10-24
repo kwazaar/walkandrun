@@ -32,6 +32,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     var timer = Timer()
     var seconds = 0
     var isTimerRunning = false
+    var polylineRect = MKMapRect()
     
     
     override func viewDidLoad() {
@@ -59,20 +60,38 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
             startRoute = false
             startTimer()
         } else {
+            
             let alert = UIAlertController(title: "Вы действительно хотите закончить маршрут?", message: "После завершения маршрута он сохраниться в историю маршрутов", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Завершить", style: .default) { _ in
+                let polyRect = self.polylineRect
+                let region = MKCoordinateRegion(polyRect)
+                let snapshotOptions = MKMapSnapshotter.Options()
+                snapshotOptions.region = region
+                snapshotOptions.size = CGSize(width: polyRect.size.width, height: polyRect.size.width)
                 
-                self.routeModel.time = self.seconds
-                self.routeModel.route = self.route
+                let snapshotter = MKMapSnapshotter(options: snapshotOptions)
                 
-                do {
+                snapshotter.start { snapshot, error in
+                    guard let snapshot = snapshot else { return }
+                    
+                    print(" До записи даты \(self.routeModel.image)")
+                    let imageData = snapshot.image.jpegData(compressionQuality: 1.0)!
+                    self.routeModel.image = imageData
+                    print("После записи даты \(self.routeModel.image)")
+                    print(self.routeModel.image)
+                    self.routeModel.time = self.seconds
+                    self.routeModel.route = self.route
                     try? self.realmService.localRealm.write {
+                        
                         self.realmService.localRealm.add(self.routeModel)
                         self.route = List<Step>()
+                        print("Выполнил запись")
                     }
                 }
+                    
                 
                 
+
                 self.mapView.removeOverlays(self.mapView.overlays)
                 self.startRoute = true
                 self.stopTimer()
@@ -165,6 +184,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     func drawRoute() {
         let polyline = MKPolyline(coordinates: routeCoordinates, count: routeCoordinates.count)
+        polylineRect = polyline.boundingMapRect
         mapView.addOverlay(polyline)
         
     }

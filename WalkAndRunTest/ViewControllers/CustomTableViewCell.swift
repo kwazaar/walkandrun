@@ -10,12 +10,13 @@ import MapKit
 
 class CustomTableViewCell: UITableViewCell, MKMapViewDelegate {
 
-    @IBOutlet weak var mapView: MKMapView!
+//    @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var imageRoute: UIImageView!
     @IBOutlet weak var timeLable: UILabel!
     @IBOutlet weak var distanceLable: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,14 +25,14 @@ class CustomTableViewCell: UITableViewCell, MKMapViewDelegate {
         // Configure the view for the selected state
     }
     
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        if overlay is MKPolyline {
-            let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.blue
-            renderer.lineWidth = 4
-            return renderer
-        }
-        return MKOverlayRenderer()
-    }
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        if overlay is MKPolyline {
+//            let renderer = MKPolylineRenderer(overlay: overlay)
+//            renderer.strokeColor = UIColor.blue
+//            renderer.lineWidth = 4
+//            return renderer
+//        }
+//        return MKOverlayRenderer()
+//    }
 
 }
