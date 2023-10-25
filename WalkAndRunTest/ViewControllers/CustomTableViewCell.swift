@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class CustomTableViewCell: UITableViewCell, MKMapViewDelegate {
+class CustomTableViewCell: UITableViewCell {
 
 //    @IBOutlet weak var mapView: MKMapView!
     

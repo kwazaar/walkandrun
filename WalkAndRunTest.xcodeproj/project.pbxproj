@@ -12,6 +12,7 @@
 		ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B78982ABCAB2C009F09D4 /* AppUser.swift */; };
 		ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */; };
 		ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */; };
+		ED31B3AC2AE8C5D7007A4279 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */; };
 		ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */; };
 		ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4602AB992FB004CDB29 /* RegViewController.swift */; };
 		ED32F4652AB993B4004CDB29 /* ParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */; };
@@ -45,6 +46,7 @@
 		ED1B78982ABCAB2C009F09D4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		ED32F4602AB992FB004CDB29 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
 		ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				ED3CEAE32AC6171200BFC1F8 /* Employee.swift */,
 				ED0F96182AD4F44A00A76FE5 /* MapPin.swift */,
 				ED3ABDBA2ADF7A7A0049EB13 /* RouteModel.swift */,
+				ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				EDA244A12ACE5E60005496A4 /* NavigationViewController.swift in Sources */,
 				EDC8453D2AB15A36001E1918 /* SceneDelegate.swift in Sources */,
 				ED3CEAE62AC6185000BFC1F8 /* RealmService.swift in Sources */,
+				ED31B3AC2AE8C5D7007A4279 /* ImageModel.swift in Sources */,
 				ED724ACB2ACD28BF0009CBA6 /* UIViewExtension.swift in Sources */,
 				ED0F961B2AD4F7AB00A76FE5 /* MapSerchViewController.swift in Sources */,
 				ED3CEAE42AC6171200BFC1F8 /* Employee.swift in Sources */,

@@ -8,12 +8,13 @@
 import UIKit
 import MapKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate {
+class ProfileViewController: UIViewController, MKMapViewDelegate { //, UITableViewDataSource, UITableViewDelegate
     
     var employee = [Employee]()
     var realmService = RealmService()
     var routes = [RouteModel]()
     var step = [Step]()
+    var realmImage = [ImageModel]()
     var arrayCoordinate = [CLLocationCoordinate2D]()
     
     @IBOutlet weak var nameLable: UILabel!
@@ -23,15 +24,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var growth: UILabel!
     @IBOutlet weak var weight: UILabel!
     @IBOutlet weak var imagePhoto: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
+    
+    
+    @IBOutlet weak var routeImage: UIImageView!
+    @IBOutlet weak var routeTime: UILabel!
+    //    @IBOutlet weak var tableView: UITableView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.reloadData()
+//        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.reloadData()
         
             employee = realmService.localRealm.objects(Employee.self).filter({ $0.email == AuthService.shared.currentUser?.email})
             guard let user = employee.first else { return }
@@ -41,8 +46,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.mail.text = user.email
             self.growth.text = user.growth
             self.weight.text = user.weight
-        routes = realmService.localRealm.objects(RouteModel.self).filter({ $0.mail == user.email })
+        routes = realmService.localRealm.objects(RouteModel.self).filter({ $0.time > 0 })
         guard let route = routes.first else { return }
+        routeTime.text = String(route.time)
         if let image = UIImage(data: route.image) {
             self.imagePhoto = UIImageView(image: image)
         } else {
@@ -50,12 +56,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         if routes.count < 0 {
-            tableView.isHidden = true
+//            tableView.isHidden = true
         } else {
-            tableView.isHidden = false
+//            tableView.isHidden = false
         }
         step = realmService.localRealm.objects(Step.self).filter({ $0.latitude > 0
         })
+        
         
         
             
@@ -63,9 +70,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
  
     @IBAction func testPrintButton(_ sender: UIButton) {
-//        if let route = routes.
-        print(routes.first?.image)
-//        Тут можно дешефровать структуру шагов 
+        realmImage = realmService.localRealm.objects(ImageModel.self).filter({ $0.image != nil })
+        guard let imageData = realmImage.first?.image else { return }
+        print(imageData)
+        routeImage.image = UIImage(data: imageData)
     }
     
     @IBAction func logOut(_ sender: UIButton) {
@@ -75,26 +83,26 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell {
-            let route = routes[indexPath.row]
-            cell.timeLable.text = String(route.time)
-            cell.distanceLable.text = route.distance
-            
-            if let image = UIImage(data: route.image) {
-                cell.imageRoute.image = image
-            } else {
-                cell.imageRoute.image = UIImage(named: "Image")
-            }
-            
-            return cell
-        }
-            return CustomTableViewCell()
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return routes.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell {
+//            let route = routes[indexPath.row]
+//            cell.timeLable.text = String(route.time)
+//            cell.distanceLable.text = route.distance
+//
+//            if let image = UIImage(data: route.image) {
+//                cell.imageRoute.image = image
+//            } else {
+//                cell.imageRoute.image = UIImage(named: "Image")
+//            }
+//
+//            return cell
+//        }
+//            return CustomTableViewCell()
+//    }
 
 
     

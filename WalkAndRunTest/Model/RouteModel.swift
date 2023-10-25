@@ -13,13 +13,13 @@ import RealmSwift
 
 final class RouteModel: Object {
     
-    @objc dynamic var id: String = UUID().uuidString
-    @objc dynamic var mail: String = ""
-    @objc dynamic var date: Data = Data()
+    @Persisted var id: String = UUID().uuidString
+    @Persisted var mail: String = ""
+    @Persisted var date: Data = Data()
     var route = List<Step>()
-    @objc dynamic var time: Int = 0
-    @objc dynamic var distance: String = ""
-    var image = Data()
+    @Persisted var time: Int = 0
+    @Persisted var distance: String = ""
+    @Persisted var image = Data()
     
     
     

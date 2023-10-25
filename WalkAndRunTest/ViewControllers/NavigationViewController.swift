@@ -16,6 +16,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     var routeModel = RouteModel()
     var route = List<Step>()
     var user = RouteModel()
+    var imageModel = ImageModel()
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startRouteButton: UIButton!
@@ -53,6 +54,31 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
         mapView.delegate = self
     }
     
+    
+    @IBAction func snapshotButton(_ sender: UIButton) {
+        let options = MKMapSnapshotter.Options()
+        let region = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        options.region = region
+        options.size = CGSize(width: 300, height: 300)
+        
+        let snapshot = MKMapSnapshotter(options: options)
+        snapshot.start { snapshot, error in
+            guard let snapshot = snapshot else {
+                print("Не сделал скрин \(error?.localizedDescription)")
+                return
+            }
+            let image = snapshot.image
+            let imageData = image.jpegData(compressionQuality: 0.5)
+            self.imageModel.image = imageData!
+            print(self.imageModel.image)
+            try? self.realmService.localRealm.write({
+                self.realmService.localRealm.add(self.imageModel)
+                print("Сделал скрин карты")
+            })
+        }
+        
+    }
+    
     @IBAction func startRoute(_ sender: UIButton) {
         if startRoute {
 
@@ -63,35 +89,17 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
             
             let alert = UIAlertController(title: "Вы действительно хотите закончить маршрут?", message: "После завершения маршрута он сохраниться в историю маршрутов", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Завершить", style: .default) { _ in
-                let polyRect = self.polylineRect
-                let region = MKCoordinateRegion(polyRect)
-                let snapshotOptions = MKMapSnapshotter.Options()
-                snapshotOptions.region = region
-                snapshotOptions.size = CGSize(width: polyRect.size.width, height: polyRect.size.width)
                 
-                let snapshotter = MKMapSnapshotter(options: snapshotOptions)
+                self.routeModel.time = self.seconds
+                self.routeModel.route = self.route
                 
-                snapshotter.start { snapshot, error in
-                    guard let snapshot = snapshot else { return }
+                try? self.realmService.localRealm.write {
                     
-                    print(" До записи даты \(self.routeModel.image)")
-                    let imageData = snapshot.image.jpegData(compressionQuality: 1.0)!
-                    self.routeModel.image = imageData
-                    print("После записи даты \(self.routeModel.image)")
-                    print(self.routeModel.image)
-                    self.routeModel.time = self.seconds
-                    self.routeModel.route = self.route
-                    try? self.realmService.localRealm.write {
-                        
-                        self.realmService.localRealm.add(self.routeModel)
-                        self.route = List<Step>()
-                        print("Выполнил запись")
-                    }
+                    self.realmService.localRealm.add(self.routeModel)
+                    self.route = List<Step>()
+                    print("Выполнил запись")
                 }
-                    
                 
-                
-
                 self.mapView.removeOverlays(self.mapView.overlays)
                 self.startRoute = true
                 self.stopTimer()
