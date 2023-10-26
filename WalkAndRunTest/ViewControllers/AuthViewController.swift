@@ -24,7 +24,7 @@ class AuthViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        realmService.deleteAllObjectsFromRealm()
+//        realmService.deleteAllObjectsFromRealm()
         navigationItem.hidesBackButton = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
         tapGesture.delegate = self

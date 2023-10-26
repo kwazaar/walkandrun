@@ -16,7 +16,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     var routeModel = RouteModel()
     var route = List<Step>()
     var user = RouteModel()
-    var imageModel = ImageModel()
+  
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startRouteButton: UIButton!
@@ -56,27 +56,6 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     
     @IBAction func snapshotButton(_ sender: UIButton) {
-        let options = MKMapSnapshotter.Options()
-        let region = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        options.region = region
-        options.size = CGSize(width: 300, height: 300)
-        
-        let snapshot = MKMapSnapshotter(options: options)
-        snapshot.start { snapshot, error in
-            guard let snapshot = snapshot else {
-                print("Не сделал скрин \(error?.localizedDescription)")
-                return
-            }
-            let image = snapshot.image
-            let imageData = image.jpegData(compressionQuality: 0.5)
-            self.imageModel.image = imageData!
-            print(self.imageModel.image)
-            try? self.realmService.localRealm.write({
-                self.realmService.localRealm.add(self.imageModel)
-                print("Сделал скрин карты")
-            })
-        }
-        
     }
     
     @IBAction func startRoute(_ sender: UIButton) {
@@ -96,10 +75,9 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
                 try? self.realmService.localRealm.write {
                     
                     self.realmService.localRealm.add(self.routeModel)
-                    self.route = List<Step>()
                     print("Выполнил запись")
                 }
-                
+                self.route = List<Step>()
                 self.mapView.removeOverlays(self.mapView.overlays)
                 self.startRoute = true
                 self.stopTimer()
@@ -174,11 +152,12 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
         if let location = locations.last?.coordinate {
-            route.append(Step(latitude: location.latitude, longitude: location.longitude))
+            
             if !startRoute {
                 routeCoordinates.append(location)
-                
+                route.append(Step(latitude: location.latitude, longitude: location.longitude))
                 drawRoute()
             }
             if setLocation {

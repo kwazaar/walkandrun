@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-            schemaVersion: 3, // Увеличьте версию схемы, если вы внесли изменения в структуру данных
+            schemaVersion: 1, // Увеличьте версию схемы, если вы внесли изменения в структуру данных
             deleteRealmIfMigrationNeeded: true // Этот параметр указывает Realm удалить старую базу данных, если требуется миграция
         )
         return true
