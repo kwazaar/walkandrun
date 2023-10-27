@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F96182AD4F44A00A76FE5 /* MapPin.swift */; };
 		ED0F961B2AD4F7AB00A76FE5 /* MapSerchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */; };
+		ED1919192AEB60CB003A0A7F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */; };
 		ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B78982ABCAB2C009F09D4 /* AppUser.swift */; };
 		ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */; };
 		ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		ED0F96182AD4F44A00A76FE5 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSerchViewController.swift; sourceTree = "<group>"; };
+		ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		ED1B78982ABCAB2C009F09D4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				EDA244A02ACE5E60005496A4 /* NavigationViewController.swift */,
 				EDE47D252AE60D3E00A313DA /* CustomTableViewCell.swift */,
 				ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */,
+				ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				EDC8453B2AB15A36001E1918 /* AppDelegate.swift in Sources */,
 				ED32F4692AB99405004CDB29 /* ProfileViewController.swift in Sources */,
 				ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */,
+				ED1919192AEB60CB003A0A7F /* CollectionViewCell.swift in Sources */,
 				EDE47D262AE60D3E00A313DA /* CustomTableViewCell.swift in Sources */,
 				ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */,
 				ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */,

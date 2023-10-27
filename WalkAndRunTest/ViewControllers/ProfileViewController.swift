@@ -8,13 +8,12 @@
 import UIKit
 import MapKit
 
-class ProfileViewController: UIViewController, MKMapViewDelegate { //, UITableViewDataSource, UITableViewDelegate
+class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var employee = [Employee]()
     var realmService = RealmService()
     var routeModel = [RouteModel]()
     var step = [Step]()
-//    var realmImage = [ImageModel]()
     var arrayCoordinate = [CLLocationCoordinate2D]()
     
     var cooordinateRegion = CLLocation(latitude: 53.1, longitude: 33.2)
@@ -27,18 +26,16 @@ class ProfileViewController: UIViewController, MKMapViewDelegate { //, UITableVi
     @IBOutlet weak var weight: UILabel!
     @IBOutlet weak var imagePhoto: UIImageView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var routeImage: UIImageView!
-    @IBOutlet weak var routeTime: UILabel!
-    //    @IBOutlet weak var tableView: UITableView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.dataSource = self
-//        tableView.delegate = self
-//        tableView.reloadData()
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
         
         employee = realmService.localRealm.objects(Employee.self).filter({ $0.email == AuthService.shared.currentUser?.email})
         guard let user = employee.first else { return }
@@ -50,19 +47,6 @@ class ProfileViewController: UIViewController, MKMapViewDelegate { //, UITableVi
         self.weight.text = user.weight
         
         routeModel = realmService.localRealm.objects(RouteModel.self).filter({ $0.time > 0 })
-        guard let route = routeModel.last else { return }
-        routeTime.text = String(route.time)
-        for coordinate in route.route {
-            arrayCoordinate.append(CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
-        }
-        
-        if routeModel.count < 0 {
-//            tableView.isHidden = true
-        } else {
-//            tableView.isHidden = false
-        }
-        step = realmService.localRealm.objects(Step.self).filter({ $0.latitude > 0
-        })
         
         
         
@@ -70,13 +54,33 @@ class ProfileViewController: UIViewController, MKMapViewDelegate { //, UITableVi
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        displayMapSnapshot()
     }
     
-    func displayMapSnapshot() {
-        if arrayCoordinate.isEmpty {
-            print("Координат нет!")
-        } else {
+    @IBAction func logOut(_ sender: UIButton) {
+        AuthService.shared.singOut()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "AuthViewController") as! AuthViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        routeModel.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
+        let route = routeModel[indexPath.row]
+        arrayCoordinate = []
+        cell.bounds.size.width = 170
+        cell.bounds.size.height = 170
+        
+        
+        
+        for coordinate in route.route {
+            arrayCoordinate.append(CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
+        }
+        
+        if !arrayCoordinate.isEmpty {
             let coordinates = arrayCoordinate
             
             // Находим минимальные и максимальные значения широты и долготы среди всех координат линии
@@ -103,7 +107,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate { //, UITableVi
             
             let options = MKMapSnapshotter.Options()
             options.region = region
-            options.size = routeImage.bounds.size
+            options.size = cell.imageRoute.bounds.size
             options.scale = UIScreen.main.scale
             options.mapType = .standard
             
@@ -116,7 +120,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate { //, UITableVi
                 snapshot.image.draw(at: .zero)
                 
                 if let context = UIGraphicsGetCurrentContext() {
-                    let coordinates = arrayCoordinate
+                    let coordinates = coordinates
                     context.beginPath()
                     context.setLineWidth(5)
                     context.setStrokeColor(UIColor.orange.cgColor)
@@ -136,51 +140,16 @@ class ProfileViewController: UIViewController, MKMapViewDelegate { //, UITableVi
                 
                 
                 let drawnImage = UIGraphicsGetImageFromCurrentImageContext()
-                self.routeImage.image = drawnImage
+                cell.imageRoute.image = drawnImage
+                
                 
             }
         }
-    }
-    
-    func setRegion() {
         
-    }
-
- 
-    @IBAction func testPrintButton(_ sender: UIButton) {
-//        realmImage = realmService.localRealm.objects(ImageModel.self).filter({ $0.image != nil })
-//        guard let imageData = realmImage.first?.image else { return }
-//        print(imageData)
-//        routeImage.image = UIImage(data: imageData)
-    }
-    
-    @IBAction func logOut(_ sender: UIButton) {
-        AuthService.shared.singOut()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "AuthViewController") as! AuthViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return routes.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell {
-//            let route = routes[indexPath.row]
-//            cell.timeLable.text = String(route.time)
-//            cell.distanceLable.text = route.distance
-//
-//            if let image = UIImage(data: route.image) {
-//                cell.imageRoute.image = image
-//            } else {
-//                cell.imageRoute.image = UIImage(named: "Image")
-//            }
-//
-//            return cell
-//        }
-//            return CustomTableViewCell()
-//    }
+        
+        
+        return cell
+     }
 
 
     
