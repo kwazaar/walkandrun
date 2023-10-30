@@ -16,8 +16,8 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     var routeModel = RouteModel()
     var route = List<Step>()
     var user = RouteModel()
-  
-
+    
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var startRouteButton: UIButton!
     
@@ -44,7 +44,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
         view.addSubview(userTrackingButton)
         userTrackingButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([userTrackingButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -100),
-            userTrackingButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20)])
+                                     userTrackingButton.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20)])
         
     }
     
@@ -55,12 +55,10 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     
-    @IBAction func snapshotButton(_ sender: UIButton) {
-    }
     
     @IBAction func startRoute(_ sender: UIButton) {
         if startRoute {
-
+            
             startRouteButton.setTitle("Окончить маршрут", for: .normal)
             startRoute = false
             startTimer()
@@ -78,6 +76,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
                     print("Выполнил запись")
                 }
                 self.route = List<Step>()
+                self.distanceTravaling.text = "0"
                 self.mapView.removeOverlays(self.mapView.overlays)
                 self.startRoute = true
                 self.stopTimer()
@@ -91,9 +90,43 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
             
             
             startRouteButton.setTitle("Начать маршрут", for: .normal)
-
+            
         }
     }
+    func calculateRouteDistance(startPoint: CLLocationCoordinate2D, endPoint: CLLocationCoordinate2D) -> Double {
+        
+            let earthRadius = 6371.0 // Радиус Земли в километрах
+            let lat1 = startPoint.latitude.degreesToRadians
+            let lon1 = startPoint.longitude.degreesToRadians
+            let lat2 = endPoint.latitude.degreesToRadians
+            let lon2 = endPoint.longitude.degreesToRadians
+            
+            let dlon = lon2 - lon1
+            let dlat = lat2 - lat1
+            
+            let a = sin(dlat/2) * sin(dlat/2) + cos(lat1) * cos(lat2) * sin(dlon/2) * sin(dlon/2)
+            let c = 2 * atan2(sqrt(a), sqrt(1-a))
+            
+            let distance = earthRadius * c // Расстояние в километрах
+            return distance
+        
+    }
+    
+    func totalDistanceBetweenPoints(locations: [CLLocationCoordinate2D]) -> Double {
+        var totalDistance: Double = 0
+        
+        guard locations.count > 1 else {
+            return totalDistance
+        }
+        
+        for i in 0..<locations.count - 1 {
+            let distance = calculateRouteDistance(startPoint: locations[i] , endPoint: locations[i + 1])
+            totalDistance += distance
+        }
+        
+        return totalDistance
+    }
+    
     
     func checkLocationEnabled() {
         DispatchQueue.global().async {
@@ -156,7 +189,14 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
         if let location = locations.last?.coordinate {
             
             if !startRoute {
+                if seconds < 3 {
+                    mediumTemp.text = "Определение..."
+                } else {
+                    let temp = (((totalDistanceBetweenPoints(locations: routeCoordinates) * 1000) / Double(seconds)) * 60) / 1000
+                    mediumTemp.text = String(format: "%.2f м/мин", temp)
+                }
                 routeCoordinates.append(location)
+                distanceTravaling.text = String(format: "%.2f м", totalDistanceBetweenPoints(locations: routeCoordinates) * 1000)
                 route.append(Step(latitude: location.latitude, longitude: location.longitude))
                 drawRoute()
             }
@@ -170,8 +210,8 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     func drawRoute() {
+        
         let polyline = MKPolyline(coordinates: routeCoordinates, count: routeCoordinates.count)
-        polylineRect = polyline.boundingMapRect
         mapView.addOverlay(polyline)
         
     }

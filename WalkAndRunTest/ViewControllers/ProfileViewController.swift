@@ -112,8 +112,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
             options.mapType = .standard
             
             let snapshoot = MKMapSnapshotter(options: options)
-            snapshoot.start(with: .main) { [weak self] (snapshot, error) in
-                guard let self = self else { return }
+            snapshoot.start(with: .main) { snapshot, error in
                 guard error == nil, let snapshot = snapshot else { return }
                 
                 UIGraphicsBeginImageContextWithOptions(snapshot.image.size, true, snapshot.image.scale)
@@ -150,7 +149,13 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         
         return cell
      }
-
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "RouteDetailViewController") as! RouteDetailViewController
+        vc.routeModel = routeModel[indexPath.row]
+        self.navigationController?.present(vc, animated: true)
+        
+    }
     
 }
