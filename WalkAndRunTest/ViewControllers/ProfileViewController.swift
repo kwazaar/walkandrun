@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        collectionView.backgroundColor = .clear
         
         employee = realmService.localRealm.objects(Employee.self).filter({ $0.email == AuthService.shared.currentUser?.email})
         guard let user = employee.first else { return }
@@ -70,6 +70,8 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         let route = routeModel[indexPath.row]
+        cell.routeTime.text = route.convertStringTime
+        cell.routeDistance.text = route.convertStringDistance
         arrayCoordinate = []
         cell.bounds.size.width = 170
         cell.bounds.size.height = 170
@@ -145,8 +147,6 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
             }
         }
         
-        
-        
         return cell
      }
     
@@ -156,6 +156,15 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         vc.routeModel = routeModel[indexPath.row]
         self.navigationController?.present(vc, animated: true)
         
+    }
+    func formatTime(seconds: TimeInterval) -> String {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "HH:mm:ss"
+        dateFormater.timeZone = TimeZone(identifier: "UTC")
+        
+        let date = Date(timeIntervalSince1970: seconds)
+        let formatedTime = dateFormater.string(from: date)
+        return formatedTime
     }
     
 }

@@ -11,5 +11,6 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageRoute: UIImageView!
     @IBOutlet weak var routeDistance: UILabel!
-
+    @IBOutlet weak var routeTime: UILabel!
+    
 }

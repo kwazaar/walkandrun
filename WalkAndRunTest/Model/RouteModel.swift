@@ -18,8 +18,11 @@ final class RouteModel: Object {
     @objc dynamic var date: Data = Data()
     var route = List<Step>()
     @objc dynamic var time: Int = 0
-    @objc dynamic var distance: String = ""
-//    @Persisted var image = Data()
+    @objc dynamic var distance: Double = 0.0
+    @objc dynamic var temp: String = ""
+    @objc dynamic var convertStringDistance: String = ""
+    @objc dynamic var convertStringTime: String = ""
+
     
     
     

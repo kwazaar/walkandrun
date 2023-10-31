@@ -39,7 +39,6 @@
 		EDE22C242ABA190B0061710E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = EDE22C232ABA190B0061710E /* FirebaseDatabase */; };
 		EDE22C262ABA190B0061710E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EDE22C252ABA190B0061710E /* FirebaseFirestore */; };
 		EDE22C282ABA190B0061710E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EDE22C272ABA190B0061710E /* FirebaseStorage */; };
-		EDE47D262AE60D3E00A313DA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE47D252AE60D3E00A313DA /* CustomTableViewCell.swift */; };
 		EDEFCD362AB8688600B1C624 /* SerchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEFCD352AB8688600B1C624 /* SerchViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +71,6 @@
 		EDC8454B2AB15A38001E1918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDC845512AB15CB4001E1918 /* GragientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GragientView.swift; sourceTree = "<group>"; };
 		EDE22C1E2ABA15640061710E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		EDE47D252AE60D3E00A313DA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		EDEFCD352AB8688600B1C624 /* SerchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,7 +129,6 @@
 				ED32F4662AB993E6004CDB29 /* MainViewController.swift */,
 				ED32F4682AB99405004CDB29 /* ProfileViewController.swift */,
 				EDA244A02ACE5E60005496A4 /* NavigationViewController.swift */,
-				EDE47D252AE60D3E00A313DA /* CustomTableViewCell.swift */,
 				ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */,
 				ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */,
 				EDC5C6912AEF51EC00F8808B /* RouteDetailViewController.swift */,
@@ -284,7 +281,6 @@
 				ED32F4692AB99405004CDB29 /* ProfileViewController.swift in Sources */,
 				ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */,
 				ED1919192AEB60CB003A0A7F /* CollectionViewCell.swift in Sources */,
-				EDE47D262AE60D3E00A313DA /* CustomTableViewCell.swift in Sources */,
 				ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */,
 				ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */,
 				EDC5C6942AEF5BE700F8808B /* Double.swift in Sources */,

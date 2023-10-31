@@ -39,6 +39,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        infoRouteView.isHidden = true
         setLocation = true
         let userTrackingButton = MKUserTrackingButton(mapView: mapView)
         view.addSubview(userTrackingButton)
@@ -62,12 +63,15 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
             startRouteButton.setTitle("Окончить маршрут", for: .normal)
             startRoute = false
             startTimer()
+            infoRouteView.isHidden = false
         } else {
             
             let alert = UIAlertController(title: "Вы действительно хотите закончить маршрут?", message: "После завершения маршрута он сохраниться в историю маршрутов", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Завершить", style: .default) { _ in
                 
                 self.routeModel.time = self.seconds
+                self.routeModel.temp = self.mediumTemp.text!
+                self.routeModel.distance = self.totalDistanceBetweenPoints(locations: self.routeCoordinates)
                 self.routeModel.route = self.route
                 
                 try? self.realmService.localRealm.write {
@@ -76,7 +80,8 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
                     print("Выполнил запись")
                 }
                 self.route = List<Step>()
-                self.distanceTravaling.text = "0"
+                self.distanceTravaling.text = "0 км"
+                self.mediumTemp.text = "0 мин/км"
                 self.mapView.removeOverlays(self.mapView.overlays)
                 self.startRoute = true
                 self.stopTimer()
@@ -189,14 +194,21 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
         if let location = locations.last?.coordinate {
             
             if !startRoute {
-                if seconds < 3 {
-                    mediumTemp.text = "Определение..."
-                } else {
-                    let temp = (((totalDistanceBetweenPoints(locations: routeCoordinates) * 1000) / Double(seconds)) * 60) / 1000
-                    mediumTemp.text = String(format: "%.2f м/мин", temp)
+                let distanceRoute = totalDistanceBetweenPoints(locations: routeCoordinates)
+                if seconds > 1 && distanceRoute > 0 {
+                    let temp =  (Double(seconds) / distanceRoute) / 60
+                    let totalSeconds = Int(temp * 60)
+                    let minutes = totalSeconds / 60
+                    let seconds = totalSeconds % 60
+                    
+                    mediumTemp.text = String(format: "%02d:%02d мин/км", minutes, seconds)
+                    routeModel.temp = mediumTemp.text!
                 }
                 routeCoordinates.append(location)
-                distanceTravaling.text = String(format: "%.2f м", totalDistanceBetweenPoints(locations: routeCoordinates) * 1000)
+                
+                
+                distanceTravaling.text = String(format: "%.2f км", totalDistanceBetweenPoints(locations: routeCoordinates))
+                routeModel.convertStringDistance = distanceTravaling.text!
                 route.append(Step(latitude: location.latitude, longitude: location.longitude))
                 drawRoute()
             }
@@ -233,6 +245,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     @objc func updateTimer() {
         seconds += 1
         runTimer.text = formatTime(seconds: Double(seconds))
+        routeModel.convertStringTime = runTimer.text!
     }
     
     func startTimer() {
@@ -244,20 +257,17 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate, MKM
     func stopTimer() {
         timer.invalidate()
         seconds = 0
-        runTimer.text = "0:00:00"
+        runTimer.text = "00:00:00"
         isTimerRunning = false
     }
     func formatTime(seconds: TimeInterval) -> String {
-        let dateFormater = DateComponentsFormatter()
-        dateFormater.unitsStyle = .positional
-        dateFormater.allowedUnits = [.hour, .minute, .second]
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "HH:mm:ss"
+        dateFormater.timeZone = TimeZone(identifier: "UTC")
         
-        let timeInterval = TimeInterval(seconds)
-        if let formatedTime = dateFormater.string(from: timeInterval) {
-            return formatedTime
-        } else {
-            return "Не определено"
-        }
+        let date = Date(timeIntervalSince1970: seconds)
+        let formatedTime = dateFormater.string(from: date)
+        return formatedTime
     }
 
 }

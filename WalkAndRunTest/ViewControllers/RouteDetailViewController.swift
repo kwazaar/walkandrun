@@ -13,6 +13,9 @@ class RouteDetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var routeTimer: UILabel!
     @IBOutlet weak var routeDistance: UILabel!
+    @IBOutlet weak var routeTemp: UILabel!
+    @IBOutlet weak var routeDate: UILabel!
+    
     var coordinates = [CLLocationCoordinate2D]()
     var routeModel = RouteModel()
     
@@ -49,6 +52,12 @@ class RouteDetailViewController: UIViewController, MKMapViewDelegate {
         
         let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
         mapView.addOverlay(polyline)
+        
+        
+        routeTimer.text = routeModel.convertStringTime
+        routeDistance.text = routeModel.convertStringDistance
+        routeTemp.text = routeModel.temp
+        
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -59,6 +68,15 @@ class RouteDetailViewController: UIViewController, MKMapViewDelegate {
             return renderer
         }
         return MKOverlayRenderer()
+    }
+    
+    func dateFormatter(date: Date) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        
+        let routeDate = dateFormatter.string(from: date)
+        return routeDate
     }
     
 
