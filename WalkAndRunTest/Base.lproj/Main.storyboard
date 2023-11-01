@@ -573,12 +573,27 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7z-wT-eE7">
-                                        <rect key="frame" x="207" y="360" width="156" height="150"/>
+                                        <rect key="frame" x="299" y="360" width="64" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfR-9F-jef">
-                                        <rect key="frame" x="224" y="360" width="139" height="143.33333333333337"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="120"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfR-9F-jef">
+                                        <rect key="frame" x="228" y="378" width="139" height="143.33333333333337"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYK-UD-zki">
+                                        <rect key="frame" x="233" y="489" width="122" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxY-2q-3xw">
+                                        <rect key="frame" x="336" y="412" width="27" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -589,27 +604,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYK-UD-zki">
-                                        <rect key="frame" x="228" y="482" width="122" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="OfR-9F-jef" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2ls-tm-b7I" secondAttribute="trailing" constant="8" symbolic="YES" id="2f5-FT-0Go"/>
                                     <constraint firstItem="gR4-KK-qBK" firstAttribute="leading" secondItem="r5o-Pd-QxX" secondAttribute="leading" constant="30" id="A8u-gE-uku"/>
                                     <constraint firstItem="eob-9S-cQu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y5Y-E2-pTR" secondAttribute="trailing" constant="8" symbolic="YES" id="BZM-X0-L4l"/>
                                     <constraint firstItem="eob-9S-cQu" firstAttribute="trailing" secondItem="gR4-KK-qBK" secondAttribute="trailing" id="C2m-DP-4ih"/>
                                     <constraint firstItem="r5o-Pd-QxX" firstAttribute="trailing" secondItem="swD-Z1-2Jq" secondAttribute="trailing" constant="38" id="D7v-0P-SRS"/>
                                     <constraint firstItem="r5o-Pd-QxX" firstAttribute="trailing" secondItem="gR4-KK-qBK" secondAttribute="trailing" constant="30" id="FbD-bF-nP7"/>
                                     <constraint firstItem="swD-Z1-2Jq" firstAttribute="top" secondItem="r5o-Pd-QxX" secondAttribute="top" constant="108" id="GFj-1R-yMF"/>
-                                    <constraint firstItem="OfR-9F-jef" firstAttribute="top" secondItem="eob-9S-cQu" secondAttribute="bottom" constant="30" id="KHu-zx-iqM"/>
                                     <constraint firstItem="2ls-tm-b7I" firstAttribute="leading" secondItem="y5Y-E2-pTR" secondAttribute="leading" id="NZl-c7-VwF"/>
                                     <constraint firstItem="swD-Z1-2Jq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r5o-Pd-QxX" secondAttribute="leading" symbolic="YES" id="TcL-Mv-0mF"/>
                                     <constraint firstItem="gR4-KK-qBK" firstAttribute="top" secondItem="r5o-Pd-QxX" secondAttribute="top" constant="100" id="Upj-gh-jPW"/>
-                                    <constraint firstItem="OfR-9F-jef" firstAttribute="trailing" secondItem="eob-9S-cQu" secondAttribute="trailing" id="q3s-Lv-Jjz"/>
                                     <constraint firstItem="eob-9S-cQu" firstAttribute="top" secondItem="gR4-KK-qBK" secondAttribute="bottom" constant="30" id="u06-sO-ODm"/>
                                     <constraint firstItem="y5Y-E2-pTR" firstAttribute="leading" secondItem="gR4-KK-qBK" secondAttribute="leading" id="uzh-Nm-tFB"/>
                                     <constraint firstItem="2ls-tm-b7I" firstAttribute="top" secondItem="y5Y-E2-pTR" secondAttribute="bottom" constant="30" id="xKT-pm-k3A"/>
@@ -632,6 +637,7 @@
                     <connections>
                         <outlet property="cityWeather" destination="6jJ-uL-sfZ" id="u1g-Fl-SZO"/>
                         <outlet property="conditionsWeather" destination="MYK-UD-zki" id="28f-jo-GhC"/>
+                        <outlet property="imageWeather" destination="P7z-wT-eE7" id="Rjc-sh-C1W"/>
                         <outlet property="tempWeather" destination="OfR-9F-jef" id="tVx-g2-5NB"/>
                     </connections>
                 </viewController>

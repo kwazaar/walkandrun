@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import CoreLocation
 
 
 class MainViewController: UIViewController {
@@ -14,10 +15,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tempWeather: UILabel!
     @IBOutlet weak var cityWeather: UILabel!
     @IBOutlet weak var conditionsWeather: UILabel!
+    @IBOutlet weak var imageWeather: UIImageView!
     
     var weatherService = WeatherAPI(apiKey: "dbee7487973248f1bad22832230111")
     var location: Step = Step()
     var weatherData: WeatherResponse?
+    var locationManager = CLLocationManager()
 
     
     
@@ -25,8 +28,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        location.latitude = 55.764094
-        location.longitude = 37.617617
+        guard let currentLocation = locationManager.location?.coordinate else { return }
+        location.latitude = currentLocation.latitude
+        location.longitude = currentLocation.longitude
         weatherService.getCurrentWeather(location: location) { result in
 
             switch result {
@@ -40,6 +44,7 @@ class MainViewController: UIViewController {
                         self.cityWeather.text = self.weatherData!.location.name
                         self.tempWeather.text = String(Int(self.weatherData!.current.temp_c))
                         self.conditionsWeather.text = self.weatherData?.current.condition.text
+                        self.imageWeather.image = UIImage(named: String(self.weatherData!.current.condition.code))
                     }
 
                 } catch {
