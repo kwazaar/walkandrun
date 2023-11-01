@@ -572,9 +572,27 @@
                                             <segue destination="VHU-17-CzB" kind="show" id="XGM-6c-fBM"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7z-wT-eE7">
+                                        <rect key="frame" x="207" y="360" width="156" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfR-9F-jef">
-                                        <rect key="frame" x="219.33333333333337" y="360" width="143.66666666666663" height="148"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="124"/>
+                                        <rect key="frame" x="224" y="360" width="139" height="143.33333333333337"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="120"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jJ-uL-sfZ">
+                                        <rect key="frame" x="228" y="360" width="114" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYK-UD-zki">
+                                        <rect key="frame" x="228" y="482" width="122" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -611,10 +629,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pUa-bf-hWi"/>
+                    <connections>
+                        <outlet property="cityWeather" destination="6jJ-uL-sfZ" id="u1g-Fl-SZO"/>
+                        <outlet property="conditionsWeather" destination="MYK-UD-zki" id="28f-jo-GhC"/>
+                        <outlet property="tempWeather" destination="OfR-9F-jef" id="tVx-g2-5NB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXN-jT-M7j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6996" y="4"/>
+            <point key="canvasLocation" x="6994.6564885496182" y="3.5211267605633805"/>
         </scene>
         <!--Map Serch View Controller-->
         <scene sceneID="gDJ-LT-xY2">
