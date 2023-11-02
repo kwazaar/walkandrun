@@ -59,7 +59,6 @@ struct Condition: Codable {
 }
 
 //------------------------------------------------//
-
 struct WeatherData: Codable {
     
     let location: Location
@@ -70,7 +69,15 @@ struct WeatherData: Codable {
 
 struct Forecast: Codable {
 
-    let forecastday: [Day]
+    let forecastday: [ForecastDay]
+       
+}
+
+struct ForecastDay: Codable {
+
+    let date: String
+    let date_epoch: Int
+    let day: Day
     let astro: Astro
     let hour: [Hour]
     
@@ -88,7 +95,14 @@ struct Day: Codable {
     let maxwind_kph: Double
     let totalprecip_mm: Double
     let totalprecip_in: Double
+    let totalsnow_cm: Double
+    let avgvis_km: Double
+    let avgvis_miles: Double
     let avghumidity: Double
+    let daily_will_it_rain: Double
+    let daily_chance_of_rain: Double
+    let daily_will_it_snow: Double
+    let daily_chance_of_snow: Double
     let condition: Condition
     let uv: Double
 }

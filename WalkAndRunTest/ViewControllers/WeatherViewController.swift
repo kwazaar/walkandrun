@@ -26,31 +26,26 @@ class WeatherViewController: UIViewController, UICollectionViewDataSource, UICol
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
         
-//        guard let currentLocation = locationManager.location?.coordinate else { return }
-//        location.latitude = currentLocation.latitude
-//        location.longitude = currentLocation.longitude
         guard let location = locations else { return }
-        print(location)
-        weatherService.getWeatherForecast(location: location, days: 1) { result in
+
+        weatherService.getWeatherForecast(location: location, days: 5) { result in
             switch result {
                 case .success(let data):
                 
                 do {
                     let decodeData = try JSONDecoder().decode(WeatherData.self, from: data)
-                    DispatchQueue.main.async {
+//                    DispatchQueue.main.async {
                         
                         self.weatherData = decodeData
-                        print("Количество дней")
+                        print("Количество дней \(decodeData.forecast.forecastday.count)")
                         
-                    }
+//                    }
 
                 } catch {
                     print(error.localizedDescription)
-                    print("ебучая ошибка")
                 }
                 case .failure(let error):
                     print("Error: \(error)")
-                    print("другая ебучая ошибка")
                 }
             
         }
@@ -64,7 +59,9 @@ class WeatherViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellWeather", for: indexPath) as! WeatherCollectionViewCell
         guard let weatherData = weatherData else { return cell }
-        cell.iconWeather.image = UIImage(named: String(weatherData.forecast.forecastday[indexPath.row].condition.code))
+        cell.iconWeather.image = UIImage(named: String(weatherData.forecast.forecastday[indexPath.row].day.condition.code))
+        cell.maxTemp.text = String(Int(weatherData.forecast.forecastday[indexPath.row].day.maxtemp_c))
+        cell.minTemp.text = String(Int(weatherData.forecast.forecastday[indexPath.row].day.mintemp_c))
         
         return cell
     }

@@ -9,10 +9,11 @@ import UIKit
 
 class WeatherCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var tempWeather: UILabel!
+    @IBOutlet weak var maxTemp: UILabel!
     @IBOutlet weak var dayWeather: UILabel!
     @IBOutlet weak var descriptionWeather: UILabel!
     @IBOutlet weak var iconWeather: UIImageView!
+    @IBOutlet weak var minTemp: UILabel!
     
     
 }
