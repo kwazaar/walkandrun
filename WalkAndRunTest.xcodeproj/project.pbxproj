@@ -24,6 +24,8 @@
 		ED3CEAE22AC612E000BFC1F8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ED3CEAE12AC612E000BFC1F8 /* RealmSwift */; };
 		ED3CEAE42AC6171200BFC1F8 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CEAE32AC6171200BFC1F8 /* Employee.swift */; };
 		ED3CEAE62AC6185000BFC1F8 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CEAE52AC6185000BFC1F8 /* RealmService.swift */; };
+		ED4E31782AF340FE0020BB66 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4E31772AF340FE0020BB66 /* WeatherCollectionViewCell.swift */; };
+		ED4E317A2AF343AA0020BB66 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4E31792AF343AA0020BB66 /* WeatherViewController.swift */; };
 		ED6B71B22AF1F2C10086677C /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B71B12AF1F2C10086677C /* WeatherAPI.swift */; };
 		ED6B71B42AF1F8D50086677C /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B71B32AF1F8D50086677C /* WeatherResponse.swift */; };
 		ED724ACB2ACD28BF0009CBA6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED724ACA2ACD28BF0009CBA6 /* UIViewExtension.swift */; };
@@ -60,6 +62,8 @@
 		ED3ABDBA2ADF7A7A0049EB13 /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
 		ED3CEAE32AC6171200BFC1F8 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		ED3CEAE52AC6185000BFC1F8 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		ED4E31772AF340FE0020BB66 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED4E31792AF343AA0020BB66 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		ED6B71B12AF1F2C10086677C /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		ED6B71B32AF1F8D50086677C /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		ED724ACA2ACD28BF0009CBA6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		ED32F45C2AB990C8004CDB29 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				ED4E31762AF340A30020BB66 /* Cell */,
 				ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */,
 				ED32F4602AB992FB004CDB29 /* RegViewController.swift */,
 				ED32F4642AB993B4004CDB29 /* ParametersViewController.swift */,
@@ -136,8 +141,8 @@
 				ED32F4682AB99405004CDB29 /* ProfileViewController.swift */,
 				EDA244A02ACE5E60005496A4 /* NavigationViewController.swift */,
 				ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */,
-				ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */,
 				EDC5C6912AEF51EC00F8808B /* RouteDetailViewController.swift */,
+				ED4E31792AF343AA0020BB66 /* WeatherViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +153,15 @@
 				EDC845512AB15CB4001E1918 /* GragientView.swift */,
 			);
 			path = ModiferView;
+			sourceTree = "<group>";
+		};
+		ED4E31762AF340A30020BB66 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */,
+				ED4E31772AF340FE0020BB66 /* WeatherCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		ED724AC92ACD28B20009CBA6 /* Extensions */ = {
@@ -281,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED32F4672AB993E6004CDB29 /* MainViewController.swift in Sources */,
+				ED4E317A2AF343AA0020BB66 /* WeatherViewController.swift in Sources */,
 				EDEFCD362AB8688600B1C624 /* SerchViewCell.swift in Sources */,
 				ED32F4652AB993B4004CDB29 /* ParametersViewController.swift in Sources */,
 				EDC8453B2AB15A36001E1918 /* AppDelegate.swift in Sources */,
@@ -291,6 +306,7 @@
 				ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */,
 				EDC5C6942AEF5BE700F8808B /* Double.swift in Sources */,
 				ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */,
+				ED4E31782AF340FE0020BB66 /* WeatherCollectionViewCell.swift in Sources */,
 				EDA244A12ACE5E60005496A4 /* NavigationViewController.swift in Sources */,
 				EDC8453D2AB15A36001E1918 /* SceneDelegate.swift in Sources */,
 				ED3CEAE62AC6185000BFC1F8 /* RealmService.swift in Sources */,

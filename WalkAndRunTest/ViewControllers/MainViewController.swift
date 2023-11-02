@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RealmSwift
 import CoreLocation
 
 
@@ -17,7 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var conditionsWeather: UILabel!
     @IBOutlet weak var imageWeather: UIImageView!
     
-    var weatherService = WeatherAPI(apiKey: "dbee7487973248f1bad22832230111")
+    var weatherService = WeatherAPI()
     var location: Step = Step()
     var weatherData: WeatherResponse?
     var locationManager = CLLocationManager()
@@ -75,4 +74,11 @@ class MainViewController: UIViewController {
         
     }
 
+    @IBAction func showWeather(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "WeatherViewController") as! WeatherViewController
+        vc.locations = location
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

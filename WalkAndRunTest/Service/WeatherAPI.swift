@@ -10,19 +10,14 @@ import Foundation
 
 class WeatherAPI {
     
-    let apiKey: String
+    let apiKey: String = "dbee7487973248f1bad22832230111"
     let baseURL: String = "https://api.weatherapi.com/v1/"
-    
-    init(apiKey: String) {
-        
-        self.apiKey = apiKey
-    }
     
     
     func getCurrentWeather(location: Step, completion: @escaping (Result<Data, Error>) -> Void) {
         
         let endpoint = "current.json"
-        if let url = URL(string: "\(baseURL)\(endpoint)?key=\(apiKey)&q=\(location.latitude),\(location.longitude)") {
+        if let url = URL(string: "\(baseURL)\(endpoint)?key=\(apiKey)&q=\(location.latitude),\(location.longitude)&lang=ru") {
             
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let error = error {
@@ -40,4 +35,23 @@ class WeatherAPI {
             }.resume()
         }
     }
+    
+    func getWeatherForecast(location: Step, days: Int, completion: @escaping (Result<Data, Error>) -> Void) {
+        
+            let endpoint = "forecast.json"
+        if let url = URL(string: "\(baseURL)\(endpoint)?key=\(apiKey)&q=\(location.latitude),\(location.longitude)&days=\(days)") {
+            print("URL: \(url)/n_______________________")
+                URLSession.shared.dataTask(with: url) { data, response, error in
+                    if let error = error {
+                        
+                        completion(.failure(error))
+                        
+                    } else if let data = data {
+                        
+                        completion(.success(data))
+                    }
+                }.resume()
+            }
+        }
+    
 }
