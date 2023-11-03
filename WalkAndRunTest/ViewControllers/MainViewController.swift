@@ -18,7 +18,8 @@ class MainViewController: UIViewController {
     
     var weatherService = WeatherAPI()
     var location: Step = Step()
-    var weatherData: WeatherResponse?
+    var weatherResponse: WeatherResponse?
+    var weatherData: WeatherData?
     var locationManager = CLLocationManager()
 
     
@@ -30,20 +31,23 @@ class MainViewController: UIViewController {
         guard let currentLocation = locationManager.location?.coordinate else { return }
         location.latitude = currentLocation.latitude
         location.longitude = currentLocation.longitude
-        weatherService.getCurrentWeather(location: location) { result in
-
+        weatherService.getWeatherForecast(location: location, days: 14) { result in
             switch result {
                 case .success(let data):
                 
                 do {
-                    let decodeData = try JSONDecoder().decode(WeatherResponse.self, from: data)
-
+                    let decodeData = try JSONDecoder().decode(WeatherData.self, from: data)
+                    
                     DispatchQueue.main.async {
+
+                        self.cityWeather.text = decodeData.location.name
+                        self.tempWeather.text = String(Int(decodeData.current.feelslike_c))
+                        self.conditionsWeather.text = decodeData.current.condition.text
+                        self.imageWeather.image = UIImage(named: String(decodeData.current.condition.code))
+                        
                         self.weatherData = decodeData
-                        self.cityWeather.text = self.weatherData!.location.name
-                        self.tempWeather.text = String(Int(self.weatherData!.current.temp_c))
-                        self.conditionsWeather.text = self.weatherData?.current.condition.text
-                        self.imageWeather.image = UIImage(named: String(self.weatherData!.current.condition.code))
+//                        print("Количество дней \(decodeData.forecast.forecastday.count)")
+                        
                     }
 
                 } catch {
@@ -52,8 +56,8 @@ class MainViewController: UIViewController {
                 case .failure(let error):
                     print("Error: \(error)")
                 }
+            
         }
-        
 
 }
     
@@ -78,7 +82,7 @@ class MainViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "WeatherViewController") as! WeatherViewController
-        vc.locations = location
+        vc.weatherData = weatherData
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
