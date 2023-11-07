@@ -58,7 +58,8 @@ struct Condition: Codable {
     let code: Int
 }
 
-//------------------------------------------------//
+//Запрос на 24 часа
+
 struct WeatherData: Codable {
     
     let location: Location
