@@ -527,10 +527,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eob-9S-cQu">
-                                        <rect key="frame" x="206.66666666666663" y="180" width="156.33333333333337" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="6aq-zn-jEZ"/>
-                                        </constraints>
+                                        <rect key="frame" x="207" y="180" width="156" height="81"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Начать маршрут">
                                             <color key="baseBackgroundColor" name="buttonColor1"/>
@@ -553,22 +550,20 @@
                                             <action selector="showProfile:" destination="a6D-l9-oJV" eventType="touchUpInside" id="Tqr-rv-QIf"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Поиск мест на карте" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gR4-KK-qBK">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Поиск в приложении" borderStyle="roundedRect" placeholder="Поиск мест на карте" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gR4-KK-qBK">
                                         <rect key="frame" x="30" y="100" width="333" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="WkE-if-n4R"/>
                                             <constraint firstAttribute="height" constant="50" id="wGH-Kf-cJD"/>
                                         </constraints>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swD-Z1-2Jq">
-                                        <rect key="frame" x="281" y="108" width="74" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="Ihj-kK-mKg"/>
-                                        </constraints>
+                                        <rect key="frame" x="207" y="269" width="156" height="61"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Поиск">
+                                        <buttonConfiguration key="configuration" style="filled" title="Поиск на карте">
                                             <color key="baseBackgroundColor" name="buttonColor1"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -614,20 +609,82 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIW-d1-mCG">
+                                        <rect key="frame" x="282" y="108" width="74" height="35"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Найти">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" name="buttonColor1"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pns-3c-srV">
+                                        <rect key="frame" x="0.0" y="549" width="393" height="303"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="303" id="B21-F8-w2m"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IG0-yu-Z0K">
+                                            <size key="itemSize" width="278" height="272"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="NewsCollectionViewCell" reuseIdentifier="NewsCell" id="WnA-Zg-3IM" customClass="NewsCollectionViewCell" customModule="WalkAndRunTest" customModuleProvider="target">
+                                                <rect key="frame" x="57.666666666666664" y="0.0" width="278" height="272"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vp9-9c-F23">
+                                                    <rect key="frame" x="0.0" y="0.0" width="278" height="272"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wve-zL-Ldw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="278" height="272"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="272" id="5oX-Uv-V1Z"/>
+                                                                <constraint firstAttribute="width" constant="278" id="sIH-p4-fkv"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Wve-zL-Ldw" secondAttribute="trailing" id="9zB-mZ-dDu"/>
+                                                        <constraint firstItem="Wve-zL-Ldw" firstAttribute="top" secondItem="vp9-9c-F23" secondAttribute="top" id="WPM-fn-A8v"/>
+                                                        <constraint firstItem="Wve-zL-Ldw" firstAttribute="leading" secondItem="vp9-9c-F23" secondAttribute="leading" id="uSU-Bq-tlq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Wve-zL-Ldw" secondAttribute="bottom" id="wbq-tm-aTc"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="278" height="272"/>
+                                                <connections>
+                                                    <outlet property="lableCell" destination="Wve-zL-Ldw" id="flF-mw-wJT"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="pns-3c-srV" firstAttribute="leading" secondItem="r5o-Pd-QxX" secondAttribute="leading" id="7Tv-9M-ya3"/>
+                                    <constraint firstItem="eob-9S-cQu" firstAttribute="trailing" secondItem="gR4-KK-qBK" secondAttribute="trailing" id="8al-Yj-Rg9"/>
                                     <constraint firstItem="gR4-KK-qBK" firstAttribute="leading" secondItem="r5o-Pd-QxX" secondAttribute="leading" constant="30" id="A8u-gE-uku"/>
-                                    <constraint firstItem="eob-9S-cQu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y5Y-E2-pTR" secondAttribute="trailing" constant="8" symbolic="YES" id="BZM-X0-L4l"/>
-                                    <constraint firstItem="eob-9S-cQu" firstAttribute="trailing" secondItem="gR4-KK-qBK" secondAttribute="trailing" id="C2m-DP-4ih"/>
-                                    <constraint firstItem="r5o-Pd-QxX" firstAttribute="trailing" secondItem="swD-Z1-2Jq" secondAttribute="trailing" constant="38" id="D7v-0P-SRS"/>
+                                    <constraint firstItem="swD-Z1-2Jq" firstAttribute="width" secondItem="eob-9S-cQu" secondAttribute="width" id="DNe-pF-k1O"/>
                                     <constraint firstItem="r5o-Pd-QxX" firstAttribute="trailing" secondItem="gR4-KK-qBK" secondAttribute="trailing" constant="30" id="FbD-bF-nP7"/>
-                                    <constraint firstItem="swD-Z1-2Jq" firstAttribute="top" secondItem="r5o-Pd-QxX" secondAttribute="top" constant="108" id="GFj-1R-yMF"/>
+                                    <constraint firstItem="eob-9S-cQu" firstAttribute="height" secondItem="gR4-KK-qBK" secondAttribute="height" multiplier="1.62" id="HNe-6k-b7n"/>
+                                    <constraint firstItem="pns-3c-srV" firstAttribute="bottom" secondItem="r5o-Pd-QxX" secondAttribute="bottom" id="HnF-go-z01"/>
+                                    <constraint firstItem="swD-Z1-2Jq" firstAttribute="trailing" secondItem="eob-9S-cQu" secondAttribute="trailing" id="Ijc-Y0-OVe"/>
                                     <constraint firstItem="2ls-tm-b7I" firstAttribute="leading" secondItem="y5Y-E2-pTR" secondAttribute="leading" id="NZl-c7-VwF"/>
-                                    <constraint firstItem="swD-Z1-2Jq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="r5o-Pd-QxX" secondAttribute="leading" symbolic="YES" id="TcL-Mv-0mF"/>
+                                    <constraint firstItem="gIW-d1-mCG" firstAttribute="width" secondItem="gR4-KK-qBK" secondAttribute="width" multiplier="0.222222" id="OTr-Yg-o37"/>
+                                    <constraint firstItem="eob-9S-cQu" firstAttribute="top" secondItem="gR4-KK-qBK" secondAttribute="bottom" constant="30" id="QcU-tl-S1s"/>
+                                    <constraint firstItem="swD-Z1-2Jq" firstAttribute="top" secondItem="eob-9S-cQu" secondAttribute="bottom" constant="8" symbolic="YES" id="SNP-JK-MbW"/>
                                     <constraint firstItem="gR4-KK-qBK" firstAttribute="top" secondItem="r5o-Pd-QxX" secondAttribute="top" constant="100" id="Upj-gh-jPW"/>
-                                    <constraint firstItem="eob-9S-cQu" firstAttribute="top" secondItem="gR4-KK-qBK" secondAttribute="bottom" constant="30" id="u06-sO-ODm"/>
+                                    <constraint firstItem="pns-3c-srV" firstAttribute="trailing" secondItem="r5o-Pd-QxX" secondAttribute="trailing" id="VCr-Ir-eat"/>
+                                    <constraint firstItem="gIW-d1-mCG" firstAttribute="leading" secondItem="gR4-KK-qBK" secondAttribute="trailing" constant="-81" id="Zci-37-Lb0"/>
+                                    <constraint firstItem="swD-Z1-2Jq" firstAttribute="height" secondItem="eob-9S-cQu" secondAttribute="height" multiplier="0.753086" id="dr3-3Z-Fd5"/>
+                                    <constraint firstItem="gIW-d1-mCG" firstAttribute="height" secondItem="gR4-KK-qBK" secondAttribute="height" multiplier="0.7" id="rC9-dw-CBl"/>
                                     <constraint firstItem="y5Y-E2-pTR" firstAttribute="leading" secondItem="gR4-KK-qBK" secondAttribute="leading" id="uzh-Nm-tFB"/>
                                     <constraint firstItem="2ls-tm-b7I" firstAttribute="top" secondItem="y5Y-E2-pTR" secondAttribute="bottom" constant="30" id="xKT-pm-k3A"/>
+                                    <constraint firstItem="gIW-d1-mCG" firstAttribute="top" secondItem="gR4-KK-qBK" secondAttribute="top" constant="8" id="xvJ-fh-VMu"/>
+                                    <constraint firstItem="eob-9S-cQu" firstAttribute="width" secondItem="gR4-KK-qBK" secondAttribute="width" multiplier="0.468468" id="yhX-Fu-vS7"/>
                                     <constraint firstItem="y5Y-E2-pTR" firstAttribute="top" secondItem="gR4-KK-qBK" secondAttribute="bottom" constant="30" id="ywG-iB-iny"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="MIU-Vv-Bjs"/>
@@ -646,6 +703,8 @@
                     <navigationItem key="navigationItem" id="pUa-bf-hWi"/>
                     <connections>
                         <outlet property="cityWeather" destination="6jJ-uL-sfZ" id="u1g-Fl-SZO"/>
+                        <outlet property="collectionView" destination="pns-3c-srV" id="7bj-Zh-Kiv"/>
+                        <outlet property="collectionViewHeightConstraint" destination="B21-F8-w2m" id="MoJ-na-CkA"/>
                         <outlet property="conditionsWeather" destination="MYK-UD-zki" id="28f-jo-GhC"/>
                         <outlet property="imageWeather" destination="P7z-wT-eE7" id="Rjc-sh-C1W"/>
                         <outlet property="tempWeather" destination="OfR-9F-jef" id="tVx-g2-5NB"/>
