@@ -9,15 +9,13 @@ import UIKit
 import CoreLocation
 
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var tempWeather: UILabel!
     @IBOutlet weak var cityWeather: UILabel!
     @IBOutlet weak var conditionsWeather: UILabel!
     @IBOutlet weak var imageWeather: UIImageView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
+
     
     var weatherService = WeatherAPI()
     var location: Step = Step()
@@ -25,18 +23,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var weatherData: WeatherData?
     var locationManager = CLLocationManager()
     
-    var testArray = ["1", "2", "3", "4", "5"]
-
-
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
         
         navigationItem.hidesBackButton = true
         guard let currentLocation = locationManager.location?.coordinate else { return }
@@ -95,26 +83,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCollectionViewCell
-        cell.lableCell.text = testArray[indexPath.row]
+    @IBAction func showNews(_ sender: UIButton) {
         
-        return cell
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "NewsViewController") as! NewsViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testArray.count
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let yOffset = collectionView.contentOffset.y
-        let contentSize = collectionView.contentSize
-        
-        if collectionViewHeightConstraint.constant < 700 {
-            collectionViewHeightConstraint.constant = 278 + yOffset
-        }
-        
-    }
     
 }

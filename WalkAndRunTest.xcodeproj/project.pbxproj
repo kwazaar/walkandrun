@@ -13,6 +13,8 @@
 		ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B78982ABCAB2C009F09D4 /* AppUser.swift */; };
 		ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */; };
 		ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */; };
+		ED1E42D62AFC7AF500CAA2D7 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */; };
+		ED1E42D82AFC809000CAA2D7 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E42D72AFC809000CAA2D7 /* NewsModel.swift */; };
 		ED31B3AC2AE8C5D7007A4279 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */; };
 		ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */; };
 		ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4602AB992FB004CDB29 /* RegViewController.swift */; };
@@ -55,6 +57,8 @@
 		ED1B78982ABCAB2C009F09D4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		ED1E42D72AFC809000CAA2D7 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		ED32F4602AB992FB004CDB29 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				ED3ABDBA2ADF7A7A0049EB13 /* RouteModel.swift */,
 				ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */,
 				ED6B71B32AF1F8D50086677C /* WeatherResponse.swift */,
+				ED1E42D72AFC809000CAA2D7 /* NewsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */,
 				EDC5C6912AEF51EC00F8808B /* RouteDetailViewController.swift */,
 				ED4E31792AF343AA0020BB66 /* WeatherViewController.swift */,
+				ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				ED32F4672AB993E6004CDB29 /* MainViewController.swift in Sources */,
 				ED4E317A2AF343AA0020BB66 /* WeatherViewController.swift in Sources */,
 				EDEFCD362AB8688600B1C624 /* SerchViewCell.swift in Sources */,
+				ED1E42D62AFC7AF500CAA2D7 /* NewsViewController.swift in Sources */,
 				ED33EAC02AF4A478008BCC32 /* HourTableViewCell.swift in Sources */,
 				ED32F4652AB993B4004CDB29 /* ParametersViewController.swift in Sources */,
 				EDC8453B2AB15A36001E1918 /* AppDelegate.swift in Sources */,
@@ -317,6 +324,7 @@
 				EDA244A12ACE5E60005496A4 /* NavigationViewController.swift in Sources */,
 				EDC8453D2AB15A36001E1918 /* SceneDelegate.swift in Sources */,
 				ED3CEAE62AC6185000BFC1F8 /* RealmService.swift in Sources */,
+				ED1E42D82AFC809000CAA2D7 /* NewsModel.swift in Sources */,
 				ED31B3AC2AE8C5D7007A4279 /* ImageModel.swift in Sources */,
 				ED724ACB2ACD28BF0009CBA6 /* UIViewExtension.swift in Sources */,
 				ED0F961B2AD4F7AB00A76FE5 /* MapSerchViewController.swift in Sources */,
