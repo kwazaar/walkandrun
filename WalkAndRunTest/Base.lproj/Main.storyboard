@@ -1087,13 +1087,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="bgColor1"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подписчиков" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQk-kZ-aL2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Подписчиков" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQk-kZ-aL2">
                                 <rect key="frame" x="159" y="308.66666666666669" width="102" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подписок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Z-sZ-iiQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Подписок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2Z-sZ-iiQ">
                                 <rect key="frame" x="158" y="280.66666666666669" width="76" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -1111,14 +1111,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вес" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vel-v4-Q9V">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Вес" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vel-v4-Q9V">
                                 <rect key="frame" x="159" y="261.33333333333331" width="28.333333333333343" height="19.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAH-Of-VQe">
-                                <rect key="frame" x="159" y="112.00000000000001" width="180" height="33.666666666666671"/>
+                                <rect key="frame" x="175.33333333333337" y="112.00000000000001" width="163.66666666666663" height="33.666666666666671"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1177,8 +1177,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" highlightedImage="Image" translatesAutoresizingMaskIntoConstraints="NO" id="086-db-dgy">
-                                <rect key="frame" x="20" y="79" width="130" height="281.33333333333331"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" highlightedImage="Image" translatesAutoresizingMaskIntoConstraints="NO" id="086-db-dgy">
+                                <rect key="frame" x="20" y="112" width="130" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GQV-AU-TYM">
                                 <rect key="frame" x="20" y="440" width="353" height="412"/>
@@ -1252,16 +1253,35 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tes-og-xia">
+                                <rect key="frame" x="20" y="300" width="130" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Сохранить">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6j-xl-FiH">
+                                <rect key="frame" x="16" y="258" width="130" height="28.333333333333314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="buttonColor1"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Изменить фото">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="changeProfilePhoto:" destination="p1y-eu-m5i" eventType="touchUpInside" id="UOV-Bh-N9W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kMp-1o-Urh"/>
                         <color key="backgroundColor" name="bgColor1"/>
                         <constraints>
-                            <constraint firstItem="fAH-Of-VQe" firstAttribute="leading" secondItem="086-db-dgy" secondAttribute="trailing" constant="9" id="0Mp-n6-ZlL"/>
                             <constraint firstItem="cmi-50-Uhy" firstAttribute="top" secondItem="gXM-WY-KEs" secondAttribute="bottom" constant="3" id="3Qb-eD-hE7"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="3u0-03-OXp" secondAttribute="trailing" constant="170.66666666666666" id="4xk-Dk-2rw"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="hmA-j6-thU" secondAttribute="trailing" constant="10" id="6jL-bv-mX3"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="fAH-Of-VQe" secondAttribute="trailing" constant="54" id="8HC-Mf-It7"/>
-                            <constraint firstItem="QQk-kZ-aL2" firstAttribute="leading" secondItem="086-db-dgy" secondAttribute="trailing" constant="9" id="9rU-8W-iA4"/>
                             <constraint firstItem="evA-N3-eh6" firstAttribute="top" secondItem="kMp-1o-Urh" secondAttribute="top" constant="10" id="AlN-Oc-zfL"/>
                             <constraint firstItem="3u0-03-OXp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vel-v4-Q9V" secondAttribute="trailing" constant="8" symbolic="YES" id="DG5-TZ-4mZ"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="cFe-J8-8mC" secondAttribute="trailing" constant="144.66666666666666" id="FKb-Lv-WLj"/>
@@ -1271,32 +1291,26 @@
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="CQV-jW-6Mq" secondAttribute="trailing" constant="164" id="GsT-sw-YJf"/>
                             <constraint firstItem="gXM-WY-KEs" firstAttribute="top" secondItem="hmA-j6-thU" secondAttribute="bottom" constant="1" id="HmT-SU-eAE"/>
                             <constraint firstItem="vel-v4-Q9V" firstAttribute="top" secondItem="cmi-50-Uhy" secondAttribute="bottom" constant="9" id="Ip4-SD-1rc"/>
-                            <constraint firstItem="cmi-50-Uhy" firstAttribute="leading" secondItem="086-db-dgy" secondAttribute="trailing" constant="8" symbolic="YES" id="JHk-g6-PRp"/>
                             <constraint firstItem="fAH-Of-VQe" firstAttribute="top" secondItem="kMp-1o-Urh" secondAttribute="top" constant="53" id="JQ9-d9-w3z"/>
                             <constraint firstItem="sBC-xL-xT4" firstAttribute="top" secondItem="hmA-j6-thU" secondAttribute="bottom" id="Jcy-L7-uWO"/>
-                            <constraint firstItem="evA-N3-eh6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="086-db-dgy" secondAttribute="trailing" constant="8" symbolic="YES" id="Nhk-fo-gVz"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="GQV-AU-TYM" secondAttribute="trailing" constant="20" id="Q6X-9e-64p"/>
                             <constraint firstItem="p3j-qz-O0z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QQk-kZ-aL2" secondAttribute="trailing" symbolic="YES" id="Qc4-J3-df8"/>
                             <constraint firstItem="p3j-qz-O0z" firstAttribute="top" secondItem="qv9-Nh-jTk" secondAttribute="bottom" constant="6" id="Qd9-HH-VLH"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="p3j-qz-O0z" secondAttribute="trailing" constant="34" id="RvD-Cl-NYd"/>
                             <constraint firstItem="hmA-j6-thU" firstAttribute="top" secondItem="cFe-J8-8mC" secondAttribute="bottom" constant="7" id="Ug3-P9-0rS"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="qv9-Nh-jTk" secondAttribute="trailing" constant="69" id="UqZ-3n-MHK"/>
-                            <constraint firstItem="qv9-Nh-jTk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Q2Z-sZ-iiQ" secondAttribute="trailing" symbolic="YES" id="VPj-pg-Mve"/>
+                            <constraint firstItem="qv9-Nh-jTk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Q2Z-sZ-iiQ" secondAttribute="trailing" constant="8" symbolic="YES" id="VPj-pg-Mve"/>
                             <constraint firstItem="hmA-j6-thU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cFe-J8-8mC" secondAttribute="leading" id="YYz-hv-74m"/>
                             <constraint firstItem="3u0-03-OXp" firstAttribute="top" secondItem="CQV-jW-6Mq" secondAttribute="bottom" constant="10" id="ZON-Wm-fp8"/>
                             <constraint firstItem="CQV-jW-6Mq" firstAttribute="leading" secondItem="cmi-50-Uhy" secondAttribute="trailing" constant="9" id="ZsZ-9a-akk"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="sBC-xL-xT4" secondAttribute="trailing" constant="110" id="acd-eE-apL"/>
-                            <constraint firstItem="Q2Z-sZ-iiQ" firstAttribute="leading" secondItem="086-db-dgy" secondAttribute="trailing" constant="8" symbolic="YES" id="clT-Pp-KLs"/>
                             <constraint firstItem="CQV-jW-6Mq" firstAttribute="top" secondItem="sBC-xL-xT4" secondAttribute="bottom" constant="8" symbolic="YES" id="eer-KO-ykV"/>
                             <constraint firstItem="Q2Z-sZ-iiQ" firstAttribute="top" secondItem="vel-v4-Q9V" secondAttribute="bottom" id="gSh-fW-2kk"/>
                             <constraint firstItem="QQk-kZ-aL2" firstAttribute="top" secondItem="Q2Z-sZ-iiQ" secondAttribute="bottom" constant="8" symbolic="YES" id="gpN-cc-bP5"/>
-                            <constraint firstItem="086-db-dgy" firstAttribute="leading" secondItem="kMp-1o-Urh" secondAttribute="leading" constant="20" id="iaF-9G-ueO"/>
                             <constraint firstItem="cFe-J8-8mC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fAH-Of-VQe" secondAttribute="leading" id="jTb-JI-ACB"/>
                             <constraint firstItem="sBC-xL-xT4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gXM-WY-KEs" secondAttribute="trailing" constant="8" symbolic="YES" id="oRw-cq-Ifd"/>
-                            <constraint firstItem="vel-v4-Q9V" firstAttribute="leading" secondItem="086-db-dgy" secondAttribute="trailing" constant="9" id="oyp-3p-js4"/>
                             <constraint firstAttribute="bottom" secondItem="GQV-AU-TYM" secondAttribute="bottom" id="rHO-Oq-Z2V"/>
                             <constraint firstItem="gXM-WY-KEs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hmA-j6-thU" secondAttribute="leading" id="u2b-sD-3uU"/>
-                            <constraint firstItem="086-db-dgy" firstAttribute="top" secondItem="kMp-1o-Urh" secondAttribute="top" constant="20" id="v4d-VL-uLi"/>
                             <constraint firstItem="GQV-AU-TYM" firstAttribute="leading" secondItem="kMp-1o-Urh" secondAttribute="leading" constant="20" id="vpu-Ri-KKV"/>
                             <constraint firstItem="kMp-1o-Urh" firstAttribute="trailing" secondItem="evA-N3-eh6" secondAttribute="trailing" constant="10" id="w5G-3D-8BP"/>
                         </constraints>
@@ -1310,6 +1324,7 @@
                         <outlet property="mail" destination="hmA-j6-thU" id="yIL-GM-mHn"/>
                         <outlet property="male" destination="sBC-xL-xT4" id="Pjz-5b-slk"/>
                         <outlet property="nameLable" destination="cFe-J8-8mC" id="wNz-df-n5e"/>
+                        <outlet property="savePhotoButton" destination="Tes-og-xia" id="RGZ-E1-CF4"/>
                         <outlet property="weight" destination="3u0-03-OXp" id="dJt-RT-NdI"/>
                     </connections>
                 </viewController>
@@ -1636,6 +1651,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

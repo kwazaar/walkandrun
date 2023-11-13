@@ -18,6 +18,7 @@ class ParametersViewController: UIViewController, UIGestureRecognizerDelegate {
     var id = "" 
     var email = ""
     var male = ""
+    var urlImage = ""
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -50,13 +51,17 @@ class ParametersViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func sendParametersButton(_ sender: UIButton) {
         
+        
+        
         let endUser = AppUser(id: self.id,
                                     email: self.email,
                                     name: self.nameTextField.text!,
                                     lastName: self.lastNameTextField.text!,
                                     male: self.male,
                                     growth: growtfTextField.text!,
-                                    weight: self.weightTextField.text!)
+                                    weight: self.weightTextField.text!,
+                                    urlImage: self.urlImage)
+                                    
         if employee == nil {
             employee = Employee()
         }
@@ -67,6 +72,7 @@ class ParametersViewController: UIViewController, UIGestureRecognizerDelegate {
         employee?.male = self.male
         employee?.growth = self.growtfTextField.text ?? ""
         employee?.weight = self.weightTextField.text ?? ""
+        employee?.urlImage = self.urlImage
         
         guard let employee = employee else { return }
         
@@ -101,6 +107,7 @@ class ParametersViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc func tapAction(_ sender: UIGestureRecognizer) {
         view.endEditing(true)
     }
+    
 
 
 }

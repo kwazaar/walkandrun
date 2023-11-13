@@ -44,8 +44,9 @@ class DatabaseService {
             guard let male = data["male"] as? String else { return }
             guard let growth = data["growth"] as? String else { return }
             guard let weight = data["weight"] as? String else { return }
+            guard let urlImage = data["urlImage"] as? String else { return }
             
-            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight)
+            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight, urlImage: urlImage)
             
             completion(.success(user))
         }

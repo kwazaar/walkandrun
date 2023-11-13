@@ -7,6 +7,8 @@
 
 import UIKit
 import MapKit
+import Firebase
+import FirebaseStorage
 
 class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -25,6 +27,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
     @IBOutlet weak var growth: UILabel!
     @IBOutlet weak var weight: UILabel!
     @IBOutlet weak var imagePhoto: UIImageView!
+    @IBOutlet weak var savePhotoButton: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -48,12 +51,12 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         
         routeModel = realmService.localRealm.objects(RouteModel.self).filter({ $0.time > 0 })
         
+        savePhotoButton.isHidden = true
+        imagePhoto.layer.cornerRadius = 100
+        imagePhoto.layer.borderWidth = 0.5
         
         
             
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     @IBAction func logOut(_ sender: UIButton) {
@@ -62,6 +65,17 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         let vc = storyboard.instantiateViewController(identifier: "AuthViewController") as! AuthViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func changeProfilePhoto(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true) {
+            self.savePhotoButton.isHidden = false
+        }
+        
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         routeModel.count
@@ -157,6 +171,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         self.navigationController?.present(vc, animated: true)
         
     }
+    
     func formatTime(seconds: TimeInterval) -> String {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "HH:mm:ss"
@@ -167,4 +182,12 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         return formatedTime
     }
     
+}
+extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        imagePhoto.image = image
+    }
 }

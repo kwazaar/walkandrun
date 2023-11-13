@@ -17,6 +17,7 @@ final class Employee: Object {
     @Persisted var male: String = ""
     @Persisted var growth: String = ""
     @Persisted var weight: String = ""
+    @Persisted var urlImage: String = ""
     
     override class func primaryKey() -> String? {
         return "id"

@@ -52,6 +52,7 @@ class NewsViewController: UIViewController,UICollectionViewDelegate, UICollectio
     
     func showMoreButtonPressed(in cell: NewsCollectionViewCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
+            
             // Дописать реализацию показать далее в ячейке
             
         }

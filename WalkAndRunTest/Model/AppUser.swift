@@ -18,6 +18,7 @@ struct AppUser : Identifiable {
     var male: String
     var growth: String
     var weight: String
+    var urlImage: String
     
     
     var representation : [String: Any] {
@@ -31,6 +32,7 @@ struct AppUser : Identifiable {
         repres["male"] = self.male
         repres["growth"] = self.growth
         repres["weight"] = self.weight
+        repres["urlImage"] = self.urlImage
         
         return repres
         
