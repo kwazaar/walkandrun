@@ -17,8 +17,11 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
     var routeModel = [RouteModel]()
     var step = [Step]()
     var arrayCoordinate = [CLLocationCoordinate2D]()
+    var user = Employee()
+    var endUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "")
     
     var cooordinateRegion = CLLocation(latitude: 53.1, longitude: 33.2)
+    var currentUserId: String = ""
     
     @IBOutlet weak var nameLable: UILabel!
     @IBOutlet weak var lastName: UILabel!
@@ -34,6 +37,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -42,18 +46,30 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         
         employee = realmService.localRealm.objects(Employee.self).filter({ $0.email == AuthService.shared.currentUser?.email})
         guard let user = employee.first else { return }
+        self.user = user
         self.nameLable.text = user.name
         self.lastName.text = user.lastName
         self.male.text = user.male
         self.mail.text = user.email
         self.growth.text = user.growth
         self.weight.text = user.weight
+        self.currentUserId = user.id
+        
+        endUser = AppUser(id: user.id,
+                        email: user.email,
+                        name: user.name,
+                        lastName: user.lastName,
+                        male: user.male,
+                        growth: user.growth,
+                        weight: user.weight,
+                        urlImage: user.urlImage)
         
         routeModel = realmService.localRealm.objects(RouteModel.self).filter({ $0.time > 0 })
         
         savePhotoButton.isHidden = true
-        imagePhoto.layer.cornerRadius = 100
+        imagePhoto.layer.cornerRadius = 75
         imagePhoto.layer.borderWidth = 0.5
+//        imagePhoto.image = UIImage(named: "user")
         
         
             
@@ -76,6 +92,32 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         
     }
     
+    @IBAction func savePhoto(_ sender: UIButton) {
+        guard let imageData = imagePhoto.image?.jpegData(compressionQuality: 0.4) else { return }
+        
+        StorageService.shared.upload(id: user.id, image: imageData) { result in
+            switch result {
+                
+            case .success(let url):
+                // не дет записать в реалм базу ссылку
+//                self.user.urlImage = url.absoluteString
+                self.endUser.urlImage = url.absoluteString
+                DatabaseService.shared.setProfile(user: self.endUser) { resultDB in
+                    switch resultDB {
+                    case .success(_):
+                        print("URL image download")
+                    case .failure(_):
+                        print("URL image not download")
+                    }
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        savePhotoButton.isHidden = true
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         routeModel.count

@@ -18,7 +18,7 @@ class ParametersViewController: UIViewController, UIGestureRecognizerDelegate {
     var id = "" 
     var email = ""
     var male = ""
-    var urlImage = ""
+    var urlImage = "user"
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!

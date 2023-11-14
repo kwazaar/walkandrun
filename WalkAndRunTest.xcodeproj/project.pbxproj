@@ -36,7 +36,7 @@
 		EDA244A12ACE5E60005496A4 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA244A02ACE5E60005496A4 /* NavigationViewController.swift */; };
 		EDC5C6922AEF51EC00F8808B /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC5C6912AEF51EC00F8808B /* RouteDetailViewController.swift */; };
 		EDC5C6942AEF5BE700F8808B /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC5C6932AEF5BE700F8808B /* Double.swift */; };
-		EDC6B7B82B01CF0A0090D844 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6B7B72B01CF0A0090D844 /* StorageManager.swift */; };
+		EDC6B7B82B01CF0A0090D844 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6B7B72B01CF0A0090D844 /* StorageService.swift */; };
 		EDC8453B2AB15A36001E1918 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8453A2AB15A36001E1918 /* AppDelegate.swift */; };
 		EDC8453D2AB15A36001E1918 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8453C2AB15A36001E1918 /* SceneDelegate.swift */; };
 		EDC845422AB15A36001E1918 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDC845402AB15A36001E1918 /* Main.storyboard */; };
@@ -79,7 +79,7 @@
 		EDA244A02ACE5E60005496A4 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		EDC5C6912AEF51EC00F8808B /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
 		EDC5C6932AEF5BE700F8808B /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
-		EDC6B7B72B01CF0A0090D844 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		EDC6B7B72B01CF0A0090D844 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		EDC845372AB15A36001E1918 /* WalkAndRunTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkAndRunTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC8453A2AB15A36001E1918 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDC8453C2AB15A36001E1918 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +126,7 @@
 		ED1B789A2ABCAE03009F09D4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				EDC6B7B72B01CF0A0090D844 /* StorageService.swift */,
 				ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */,
 				ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */,
 				ED3CEAE52AC6185000BFC1F8 /* RealmService.swift */,
@@ -137,7 +138,6 @@
 		ED22BFFC2AC1FA1A00489953 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				EDC6B7B72B01CF0A0090D844 /* StorageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 				EDC5C6922AEF51EC00F8808B /* RouteDetailViewController.swift in Sources */,
 				ED5954E72AFB32C100D4420A /* NewsCollectionViewCell.swift in Sources */,
 				ED3ABDBB2ADF7A7A0049EB13 /* RouteModel.swift in Sources */,
-				EDC6B7B82B01CF0A0090D844 /* StorageManager.swift in Sources */,
+				EDC6B7B82B01CF0A0090D844 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
