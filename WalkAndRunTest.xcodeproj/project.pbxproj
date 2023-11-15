@@ -15,6 +15,7 @@
 		ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */; };
 		ED1E42D62AFC7AF500CAA2D7 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */; };
 		ED1E42D82AFC809000CAA2D7 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E42D72AFC809000CAA2D7 /* NewsModel.swift */; };
+		ED1F294B2B04782400B09FAC /* WriteNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1F294A2B04782400B09FAC /* WriteNewsViewController.swift */; };
 		ED31B3AC2AE8C5D7007A4279 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */; };
 		ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */; };
 		ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4602AB992FB004CDB29 /* RegViewController.swift */; };
@@ -60,6 +61,7 @@
 		ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		ED1E42D72AFC809000CAA2D7 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		ED1F294A2B04782400B09FAC /* WriteNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewsViewController.swift; sourceTree = "<group>"; };
 		ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		ED32F4602AB992FB004CDB29 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				EDC5C6912AEF51EC00F8808B /* RouteDetailViewController.swift */,
 				ED4E31792AF343AA0020BB66 /* WeatherViewController.swift */,
 				ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */,
+				ED1F294A2B04782400B09FAC /* WriteNewsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				EDC5C6922AEF51EC00F8808B /* RouteDetailViewController.swift in Sources */,
 				ED5954E72AFB32C100D4420A /* NewsCollectionViewCell.swift in Sources */,
 				ED3ABDBB2ADF7A7A0049EB13 /* RouteModel.swift in Sources */,
+				ED1F294B2B04782400B09FAC /* WriteNewsViewController.swift in Sources */,
 				EDC6B7B82B01CF0A0090D844 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

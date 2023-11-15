@@ -24,6 +24,11 @@ class NewsViewController: UIViewController,UICollectionViewDelegate, UICollectio
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    @IBAction func addNews(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "WriteNewsViewController") as! WriteNewsViewController
+        present(vc, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return testArray.count

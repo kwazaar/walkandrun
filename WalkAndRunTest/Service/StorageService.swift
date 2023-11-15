@@ -50,7 +50,7 @@ class StorageService {
         
         let ref = Storage.storage().reference().child("avatars").child(id)
         
-        ref.child(id).getData(maxSize: 2 * 1024 * 1024) { data, error in
+        ref.getData(maxSize: 2 * 1024 * 1024) { data, error in
             guard let data = data else {
                 if let error = error {
                     complition(.failure(error))

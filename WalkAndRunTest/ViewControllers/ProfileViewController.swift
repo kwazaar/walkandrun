@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import Firebase
 import FirebaseStorage
+import RealmSwift
 
 class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -63,16 +64,35 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
                         growth: user.growth,
                         weight: user.weight,
                         urlImage: user.urlImage)
+
         
         routeModel = realmService.localRealm.objects(RouteModel.self).filter({ $0.time > 0 })
         
         savePhotoButton.isHidden = true
         imagePhoto.layer.cornerRadius = 75
         imagePhoto.layer.borderWidth = 0.5
-//        imagePhoto.image = UIImage(named: "user")
         
-        
-            
+        DatabaseService.shared.getProfile { result in
+            switch result {
+                
+            case .success(let user):
+                self.endUser = user
+
+                StorageService.shared.downloadAvatar(id: user.id) { result in
+                    
+                    switch result {
+                        
+                    case .success(let image):
+                        self.imagePhoto.image = UIImage(data: image)
+                    case .failure(_):
+                        print("Изображение не загрузилось \nid: \(user.id)")
+                    }
+                }
+                print("Пользователь получен")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func logOut(_ sender: UIButton) {
@@ -95,27 +115,28 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
     @IBAction func savePhoto(_ sender: UIButton) {
         guard let imageData = imagePhoto.image?.jpegData(compressionQuality: 0.4) else { return }
         
-        StorageService.shared.upload(id: user.id, image: imageData) { result in
-            switch result {
-                
-            case .success(let url):
-                // не дет записать в реалм базу ссылку
-//                self.user.urlImage = url.absoluteString
-                self.endUser.urlImage = url.absoluteString
-                DatabaseService.shared.setProfile(user: self.endUser) { resultDB in
-                    switch resultDB {
-                    case .success(_):
-                        print("URL image download")
-                    case .failure(_):
-                        print("URL image not download")
+            StorageService.shared.upload(id: user.id, image: imageData) { result in
+                switch result {
+                    
+                case .success(let url):
+                    // Реализовать сохрарение ссылки в реалм
+                    self.endUser.urlImage = url.absoluteString
+                    
+                    DatabaseService.shared.setProfile(user: self.endUser) { resultDB in
+                        switch resultDB {
+                        case .success(_):
+                            print("URL image download")
+                        case .failure(_):
+                            print("URL image not download")
+                        }
+                        
                     }
+                    
+                case .failure(let error):
+                    print(error)
                 }
                 
-            case .failure(let error):
-                print(error)
             }
-        }
-        
         savePhotoButton.isHidden = true
     }
     

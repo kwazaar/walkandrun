@@ -844,7 +844,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rMY-2F-s9y">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="0.0" y="119" width="393" height="733"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZUs-ob-soM">
                                     <size key="itemSize" width="370" height="335"/>
@@ -941,16 +941,35 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whr-sW-1FC">
+                                <rect key="frame" x="333" y="90" width="41" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="X1k-mX-3Rs"/>
+                                    <constraint firstAttribute="height" constant="24" id="vFL-f3-xH9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="27"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addNews:" destination="K18-h6-jkA" eventType="touchUpInside" id="Gm1-yW-1jd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="93H-zK-D5s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rMY-2F-s9y" firstAttribute="leading" secondItem="93H-zK-D5s" secondAttribute="leading" id="0QK-Ox-cAn"/>
-                            <constraint firstItem="rMY-2F-s9y" firstAttribute="top" secondItem="93H-zK-D5s" secondAttribute="top" id="Ia3-3g-bOx"/>
+                            <constraint firstItem="rMY-2F-s9y" firstAttribute="top" secondItem="93H-zK-D5s" secondAttribute="top" constant="60" id="Ia3-3g-bOx"/>
+                            <constraint firstAttribute="trailing" secondItem="Whr-sW-1FC" secondAttribute="trailing" constant="19" id="M6T-Cf-Erx"/>
                             <constraint firstItem="rMY-2F-s9y" firstAttribute="trailing" secondItem="93H-zK-D5s" secondAttribute="trailing" id="SRJ-hO-eTW"/>
                             <constraint firstAttribute="bottom" secondItem="rMY-2F-s9y" secondAttribute="bottom" id="fE1-hu-WQg"/>
+                            <constraint firstItem="Whr-sW-1FC" firstAttribute="top" secondItem="N56-ga-3Zk" secondAttribute="top" constant="90" id="fR9-1R-dzM"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="rMY-2F-s9y" id="ucb-hr-NER"/>
                     </connections>
@@ -958,6 +977,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9R-ge-xHT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7794.6564885496182" y="-664.08450704225356"/>
+        </scene>
+        <!--Write News View Controller-->
+        <scene sceneID="aPA-mU-jl1">
+            <objects>
+                <viewController storyboardIdentifier="WriteNewsViewController" id="4Uq-aW-A4D" customClass="WriteNewsViewController" customModule="WalkAndRunTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6TJ-ji-tfk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="Чем вы хотите поделиться? " minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="l1l-lj-8Hc">
+                                <rect key="frame" x="16" y="124" width="361" height="216"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iu4-QU-ZE6">
+                                <rect key="frame" x="254" y="79" width="119" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="GX0-FD-exr"/>
+                                    <constraint firstAttribute="width" constant="119" id="MwO-hj-3VZ"/>
+                                </constraints>
+                                <color key="tintColor" name="buttonColor1"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Поделиться"/>
+                                <connections>
+                                    <action selector="pushNews:" destination="4Uq-aW-A4D" eventType="touchUpInside" id="uPF-Qg-pnn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24I-YS-CP4">
+                                <rect key="frame" x="16" y="361" width="144" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Добавить фото"/>
+                                <connections>
+                                    <action selector="addPhoto:" destination="4Uq-aW-A4D" eventType="touchUpInside" id="9c1-LA-mLi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ffx-72-Nrp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="24I-YS-CP4" firstAttribute="leading" secondItem="l1l-lj-8Hc" secondAttribute="leading" id="0Dl-HA-4Sr"/>
+                            <constraint firstItem="l1l-lj-8Hc" firstAttribute="height" secondItem="iu4-QU-ZE6" secondAttribute="height" multiplier="6.17143" id="HEr-K5-54m"/>
+                            <constraint firstItem="24I-YS-CP4" firstAttribute="width" secondItem="l1l-lj-8Hc" secondAttribute="width" multiplier="0.398892" id="JcI-mJ-tM6"/>
+                            <constraint firstItem="l1l-lj-8Hc" firstAttribute="trailing" secondItem="iu4-QU-ZE6" secondAttribute="trailing" constant="4" id="LqQ-Bm-GZb"/>
+                            <constraint firstItem="24I-YS-CP4" firstAttribute="top" secondItem="l1l-lj-8Hc" secondAttribute="bottom" constant="21" id="Q6z-IK-D96"/>
+                            <constraint firstItem="l1l-lj-8Hc" firstAttribute="width" secondItem="iu4-QU-ZE6" secondAttribute="width" multiplier="3.03361" id="RpT-TL-cWc"/>
+                            <constraint firstItem="Ffx-72-Nrp" firstAttribute="trailing" secondItem="iu4-QU-ZE6" secondAttribute="trailing" constant="20" id="S53-Mf-2nj"/>
+                            <constraint firstItem="iu4-QU-ZE6" firstAttribute="top" secondItem="Ffx-72-Nrp" secondAttribute="top" constant="20" id="f5k-pv-qFU"/>
+                            <constraint firstItem="24I-YS-CP4" firstAttribute="height" secondItem="l1l-lj-8Hc" secondAttribute="height" multiplier="0.162037" id="kg4-1u-3d8"/>
+                            <constraint firstItem="l1l-lj-8Hc" firstAttribute="top" secondItem="iu4-QU-ZE6" secondAttribute="bottom" constant="10" id="wI1-bW-s7M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textPost" destination="l1l-lj-8Hc" id="BlN-5P-vNU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ucc-sF-efc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8518.3206106870221" y="-664.08450704225356"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="Qtx-r0-VNF">
