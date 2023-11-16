@@ -10,6 +10,7 @@
 		ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F96182AD4F44A00A76FE5 /* MapPin.swift */; };
 		ED0F961B2AD4F7AB00A76FE5 /* MapSerchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */; };
 		ED1919192AEB60CB003A0A7F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */; };
+		ED1ABF682B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1ABF672B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift */; };
 		ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B78982ABCAB2C009F09D4 /* AppUser.swift */; };
 		ED1B789C2ABCAE26009F09D4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */; };
 		ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */; };
@@ -56,6 +57,7 @@
 		ED0F96182AD4F44A00A76FE5 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSerchViewController.swift; sourceTree = "<group>"; };
 		ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		ED1ABF672B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED1B78982ABCAB2C009F09D4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		ED1B789B2ABCAE26009F09D4 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				ED4E31772AF340FE0020BB66 /* WeatherCollectionViewCell.swift */,
 				ED33EABF2AF4A478008BCC32 /* HourTableViewCell.swift */,
 				ED5954E62AFB32C100D4420A /* NewsCollectionViewCell.swift */,
+				ED1ABF672B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				ED6B71B22AF1F2C10086677C /* WeatherAPI.swift in Sources */,
 				EDC5C6922AEF51EC00F8808B /* RouteDetailViewController.swift in Sources */,
 				ED5954E72AFB32C100D4420A /* NewsCollectionViewCell.swift in Sources */,
+				ED1ABF682B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift in Sources */,
 				ED3ABDBB2ADF7A7A0049EB13 /* RouteModel.swift in Sources */,
 				ED1F294B2B04782400B09FAC /* WriteNewsViewController.swift in Sources */,
 				EDC6B7B82B01CF0A0090D844 /* StorageService.swift in Sources */,

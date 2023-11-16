@@ -18,8 +18,21 @@ class DatabaseService {
     private var usersRef: CollectionReference {
         return db.collection("users")
     }
+    private var newsRef: CollectionReference {
+        return db.collection("news")
+    }
     
     private init () { }
+    
+    func pushNews(news: NewsModel, completion: @escaping ((Result<NewsModel, Error>) -> ())) {
+        newsRef.document(news.id).setData(news.representation) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(news))
+            }
+        }
+    }
     
     func setProfile(user: AppUser, completion: @escaping ((Result <AppUser, Error>) -> ())) {
         

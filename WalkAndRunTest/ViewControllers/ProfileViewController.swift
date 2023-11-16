@@ -109,7 +109,6 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         present(imagePicker, animated: true) {
             self.savePhotoButton.isHidden = false
         }
-        
     }
     
     @IBAction func savePhoto(_ sender: UIButton) {
