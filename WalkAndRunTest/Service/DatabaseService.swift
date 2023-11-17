@@ -25,7 +25,7 @@ class DatabaseService {
     private init () { }
     
     func pushNews(news: NewsModel, completion: @escaping ((Result<NewsModel, Error>) -> ())) {
-        newsRef.document(news.id).setData(news.representation) { error in
+        newsRef.document(news.userId).collection(news.date).document(news.id).setData(news.representation) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -44,7 +44,9 @@ class DatabaseService {
             }
         }
     }
-    
+    func getNews(completion: @escaping (Result<AppUser, Error>) -> ()) {
+        // Реализовать получение новостей
+    }
     func getProfile(completion: @escaping (Result<AppUser, Error>) -> ()) {
         
         usersRef.document(AuthService.shared.currentUser!.uid).getDocument { documentSnapshor, error in

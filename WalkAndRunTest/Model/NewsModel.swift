@@ -9,7 +9,7 @@ import Foundation
 
 
 struct NewsModel {
-    
+    var userId: String
     var id: String = UUID().uuidString
     var userName: String
     var date: String
@@ -21,6 +21,7 @@ struct NewsModel {
         
         var repres = [String: Any]()
         
+        repres["userId"] = self.userId
         repres["id"] = self.id
         repres["userName"] = self.userName
         repres["date"] = self.date

@@ -16,7 +16,7 @@ class WriteNewsViewController: UIViewController, UICollectionViewDelegate, UICol
     var data: String = ""
     var user = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "")
     var postImage = [UIImage]()
-    var news = NewsModel(id: "", userName: "", date: "", profilePhoto: "", textPost: "", imagePost: "")
+    var news = NewsModel(userId: "", id: "", userName: "", date: "", profilePhoto: "", textPost: "", imagePost: "")
     
     
     override func viewDidLoad() {
@@ -43,6 +43,7 @@ class WriteNewsViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBAction func pushNews(_ sender: UIButton) {
         data = getDate()
         news.id = UUID().uuidString
+        news.userId = user.id
         news.date = data
         let userName = user.name + " " + user.lastName
         news.userName = userName
@@ -50,29 +51,38 @@ class WriteNewsViewController: UIViewController, UICollectionViewDelegate, UICol
         news.textPost = textPost.text ?? ""
         
         
-        guard let imageData = postImage.first!.jpegData(compressionQuality: 0.4) else { return }
-        StorageService.shared.uploadImage(id: news.id, image: imageData) { resultImageUrl in
-            switch resultImageUrl {
-                
-            case .success(let url):
-                self.news.imagePost = url.absoluteString
-                DatabaseService.shared.pushNews(news: self.news) { result in
-                    switch result {
-                    case .success(_):
-                        print("Ok")
-                    case .failure(let error):
-                        print(error.localizedDescription)
+        if let imageData = postImage.first?.jpegData(compressionQuality: 0.4) {
+            StorageService.shared.uploadImage(id: news.id, image: imageData) { resultImageUrl in
+                switch resultImageUrl {
+                    
+                case .success(let url):
+                    self.news.imagePost = url.absoluteString
+                    DatabaseService.shared.pushNews(news: self.news) { result in
+                        switch result {
+                        case .success(_):
+                            print("Ok")
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
                     }
-                    }
-            case .failure(let error):
-                print(error.localizedDescription)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
+        } else {
+            news.imagePost = ""
+            DatabaseService.shared.pushNews(news: self.news) { result in
+                switch result {
+                case .success(_):
+                    print("Ok")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+            
+    
         }
-        
-        
-        
-        
-        
     }
     
     @IBAction func addPhoto(_ sender: UIButton) {
