@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F96182AD4F44A00A76FE5 /* MapPin.swift */; };
 		ED0F961B2AD4F7AB00A76FE5 /* MapSerchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */; };
+		ED0FC9762B087F4B00447300 /* ProfileFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FC9752B087F4B00447300 /* ProfileFriendViewController.swift */; };
+		ED0FC9782B08849B00447300 /* SerchProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FC9772B08849B00447300 /* SerchProfileTableViewCell.swift */; };
+		ED0FC97A2B08856200447300 /* SerchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FC9792B08856200447300 /* SerchViewController.swift */; };
+		ED0FC97C2B092CCC00447300 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FC97B2B092CCC00447300 /* UsersModel.swift */; };
 		ED1919192AEB60CB003A0A7F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */; };
 		ED1ABF682B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1ABF672B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift */; };
 		ED1B78992ABCAB2C009F09D4 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B78982ABCAB2C009F09D4 /* AppUser.swift */; };
@@ -56,6 +60,10 @@
 /* Begin PBXFileReference section */
 		ED0F96182AD4F44A00A76FE5 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		ED0F961A2AD4F7AB00A76FE5 /* MapSerchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSerchViewController.swift; sourceTree = "<group>"; };
+		ED0FC9752B087F4B00447300 /* ProfileFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendViewController.swift; sourceTree = "<group>"; };
+		ED0FC9772B08849B00447300 /* SerchProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchProfileTableViewCell.swift; sourceTree = "<group>"; };
+		ED0FC9792B08856200447300 /* SerchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchViewController.swift; sourceTree = "<group>"; };
+		ED0FC97B2B092CCC00447300 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		ED1919182AEB60CB003A0A7F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		ED1ABF672B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED1B78982ABCAB2C009F09D4 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
@@ -123,6 +131,7 @@
 				ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */,
 				ED6B71B32AF1F8D50086677C /* WeatherResponse.swift */,
 				ED1E42D72AFC809000CAA2D7 /* NewsModel.swift */,
+				ED0FC97B2B092CCC00447300 /* UsersModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +170,8 @@
 				ED4E31792AF343AA0020BB66 /* WeatherViewController.swift */,
 				ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */,
 				ED1F294A2B04782400B09FAC /* WriteNewsViewController.swift */,
+				ED0FC9752B087F4B00447300 /* ProfileFriendViewController.swift */,
+				ED0FC9792B08856200447300 /* SerchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -181,6 +192,7 @@
 				ED33EABF2AF4A478008BCC32 /* HourTableViewCell.swift */,
 				ED5954E62AFB32C100D4420A /* NewsCollectionViewCell.swift */,
 				ED1ABF672B05BFEB009EC225 /* NewsPhotoCollectionViewCell.swift */,
+				ED0FC9772B08849B00447300 /* SerchProfileTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -318,9 +330,11 @@
 				ED32F4672AB993E6004CDB29 /* MainViewController.swift in Sources */,
 				ED4E317A2AF343AA0020BB66 /* WeatherViewController.swift in Sources */,
 				EDEFCD362AB8688600B1C624 /* SerchViewCell.swift in Sources */,
+				ED0FC9782B08849B00447300 /* SerchProfileTableViewCell.swift in Sources */,
 				ED1E42D62AFC7AF500CAA2D7 /* NewsViewController.swift in Sources */,
 				ED33EAC02AF4A478008BCC32 /* HourTableViewCell.swift in Sources */,
 				ED32F4652AB993B4004CDB29 /* ParametersViewController.swift in Sources */,
+				ED0FC9762B087F4B00447300 /* ProfileFriendViewController.swift in Sources */,
 				EDC8453B2AB15A36001E1918 /* AppDelegate.swift in Sources */,
 				ED32F4692AB99405004CDB29 /* ProfileViewController.swift in Sources */,
 				ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */,
@@ -342,6 +356,8 @@
 				ED6B71B42AF1F8D50086677C /* WeatherResponse.swift in Sources */,
 				ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */,
 				ED1B789E2ABCB4FC009F09D4 /* AuthService.swift in Sources */,
+				ED0FC97A2B08856200447300 /* SerchViewController.swift in Sources */,
+				ED0FC97C2B092CCC00447300 /* UsersModel.swift in Sources */,
 				ED6B71B22AF1F2C10086677C /* WeatherAPI.swift in Sources */,
 				EDC5C6922AEF51EC00F8808B /* RouteDetailViewController.swift in Sources */,
 				ED5954E72AFB32C100D4420A /* NewsCollectionViewCell.swift in Sources */,

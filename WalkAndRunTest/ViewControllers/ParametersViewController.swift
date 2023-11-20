@@ -60,7 +60,8 @@ class ParametersViewController: UIViewController, UIGestureRecognizerDelegate {
                                     male: self.male,
                                     growth: growtfTextField.text!,
                                     weight: self.weightTextField.text!,
-                                    urlImage: self.urlImage)
+                                    urlImage: self.urlImage,
+                                    subscribers: [])
                                     
         if employee == nil {
             employee = Employee()

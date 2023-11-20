@@ -15,7 +15,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var cityWeather: UILabel!
     @IBOutlet weak var conditionsWeather: UILabel!
     @IBOutlet weak var imageWeather: UIImageView!
-
+    @IBOutlet weak var serchTextField: UITextField!
+    
     
     var weatherService = WeatherAPI()
     var location: Step = Step()
@@ -25,6 +26,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        serchTextField.delegate = self
         
         navigationItem.hidesBackButton = true
         guard let currentLocation = locationManager.location?.coordinate else { return }
@@ -54,8 +57,13 @@ class MainViewController: UIViewController {
                 case .failure(let error):
                     print("Error: \(error)")
                 }
-            
         }
+    }
+    
+    @IBAction func serchFriend(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "SerchViewController") as! SerchViewController
+        self.navigationController?.present(vc, animated: true)
     }
     
     @IBAction func showProfile(_ sender: UIButton) {
@@ -91,5 +99,16 @@ class MainViewController: UIViewController {
         
     }
     
+
     
+    
+}
+
+extension MainViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        
+        
+    }
 }

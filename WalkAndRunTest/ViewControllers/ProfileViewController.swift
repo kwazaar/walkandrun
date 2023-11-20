@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
     var step = [Step]()
     var arrayCoordinate = [CLLocationCoordinate2D]()
     var user = Employee()
-    var endUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "")
+    var endUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", subscribers: [])
     
     var cooordinateRegion = CLLocation(latitude: 53.1, longitude: 33.2)
     var currentUserId: String = ""
@@ -63,7 +63,8 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
                         male: user.male,
                         growth: user.growth,
                         weight: user.weight,
-                        urlImage: user.urlImage)
+                        urlImage: user.urlImage,
+                        subscribers: [])
 
         
         routeModel = realmService.localRealm.objects(RouteModel.self).filter({ $0.time > 0 })
@@ -79,16 +80,13 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
                 self.endUser = user
 
                 StorageService.shared.downloadAvatar(id: user.id) { result in
-                    
-                    switch result {
-                        
+                    switch result {                        
                     case .success(let image):
                         self.imagePhoto.image = UIImage(data: image)
                     case .failure(_):
                         print("Изображение не загрузилось \nid: \(user.id)")
                     }
                 }
-                print("Пользователь получен")
             case .failure(let error):
                 print(error.localizedDescription)
             }

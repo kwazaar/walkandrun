@@ -36,7 +36,7 @@ class DatabaseService {
     
     func setProfile(user: AppUser, completion: @escaping ((Result <AppUser, Error>) -> ())) {
         
-        usersRef.document(user.id).setData(user.representation) { error in
+        usersRef.document(user.email).setData(user.representation) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -44,7 +44,7 @@ class DatabaseService {
             }
         }
     }
-    func getNews(completion: @escaping (Result<AppUser, Error>) -> ()) {
+    func getNews(completion: @escaping (Result<NewsModel, Error>) -> ()) {
         // Реализовать получение новостей
     }
     func getProfile(completion: @escaping (Result<AppUser, Error>) -> ()) {
@@ -61,10 +61,37 @@ class DatabaseService {
             guard let growth = data["growth"] as? String else { return }
             guard let weight = data["weight"] as? String else { return }
             guard let urlImage = data["urlImage"] as? String else { return }
+            guard let subscribers = data["subscribers"] as? [String] else { return }
             
-            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight, urlImage: urlImage)
+            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight, urlImage: urlImage, subscribers: subscribers)
             
             completion(.success(user))
+        }
+    }
+    func getUsers(email: String, completion: @escaping (Result<AppUser, Error>) -> ()) {
+        
+        usersRef.document(email).getDocument { documentSnapshot, error in
+            guard let snap = documentSnapshot else { return }
+            guard let data = snap.data() else { return }
+            
+            guard let email = data["email"] as? String else { return }
+            guard let id = data["id"] as? String else { return }
+            guard let name = data["name"] as? String else { return }
+            guard let lastName = data["lastName"] as? String else { return }
+            guard let male = data["male"] as? String else { return }
+            guard let growth = data["growth"] as? String else { return }
+            guard let weight = data["weight"] as? String else { return }
+            guard let urlImage = data["urlImage"] as? String else { return }
+            guard let subscribers = data["subscribers"] as? [String] else { return }
+            
+            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight, urlImage: urlImage, subscribers: subscribers)
+            
+            completion(.success(user))
+            
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
         }
     }
 }
