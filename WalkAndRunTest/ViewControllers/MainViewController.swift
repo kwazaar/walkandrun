@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     var weatherResponse: WeatherResponse?
     var weatherData: WeatherData?
     var locationManager = CLLocationManager()
+    var currentUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", following: [], followers: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,13 +64,14 @@ class MainViewController: UIViewController {
     @IBAction func serchFriend(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "SerchViewController") as! SerchViewController
-        self.navigationController?.present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func showProfile(_ sender: UIButton) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "ProfileViewController") as! ProfileViewController
+        vc.endUser = currentUser
         self.navigationController?.pushViewController(vc, animated: true)
 
 

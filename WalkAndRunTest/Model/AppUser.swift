@@ -19,7 +19,8 @@ struct AppUser : Identifiable {
     var growth: String
     var weight: String
     var urlImage: String
-    var subscribers: [String]
+    var following: [String]
+    var followers: [String]
     
     
     var representation : [String: Any] {
@@ -34,7 +35,8 @@ struct AppUser : Identifiable {
         repres["growth"] = self.growth
         repres["weight"] = self.weight
         repres["urlImage"] = self.urlImage
-        repres["subscribers"] = self.subscribers
+        repres["following"] = self.following
+        repres["followers"] = self.followers
         
         return repres
         

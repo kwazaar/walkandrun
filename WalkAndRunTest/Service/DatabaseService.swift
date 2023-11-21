@@ -49,7 +49,7 @@ class DatabaseService {
     }
     func getProfile(completion: @escaping (Result<AppUser, Error>) -> ()) {
         
-        usersRef.document(AuthService.shared.currentUser!.uid).getDocument { documentSnapshor, error in
+        usersRef.document(AuthService.shared.currentUser!.email!).getDocument { documentSnapshor, error in
             guard let snap = documentSnapshor else { return }
             guard let data = snap.data() else { return }
             
@@ -61,9 +61,10 @@ class DatabaseService {
             guard let growth = data["growth"] as? String else { return }
             guard let weight = data["weight"] as? String else { return }
             guard let urlImage = data["urlImage"] as? String else { return }
-            guard let subscribers = data["subscribers"] as? [String] else { return }
+            guard let following = data["following"] as? [String] else { return }
+            guard let followers = data["followers"] as? [String] else { return }
             
-            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight, urlImage: urlImage, subscribers: subscribers)
+            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight, urlImage: urlImage, following: following, followers: followers)
             
             completion(.success(user))
         }
@@ -82,9 +83,10 @@ class DatabaseService {
             guard let growth = data["growth"] as? String else { return }
             guard let weight = data["weight"] as? String else { return }
             guard let urlImage = data["urlImage"] as? String else { return }
-            guard let subscribers = data["subscribers"] as? [String] else { return }
+            guard let following = data["following"] as? [String] else { return }
+            guard let followers = data["followers"] as? [String] else { return }
             
-            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight, urlImage: urlImage, subscribers: subscribers)
+            let user = AppUser(id: id, email: email, name: name, lastName: lastName, male: male, growth: growth, weight: weight, urlImage: urlImage, following: following, followers: followers)
             
             completion(.success(user))
             

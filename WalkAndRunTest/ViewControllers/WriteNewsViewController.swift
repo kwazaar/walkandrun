@@ -14,7 +14,7 @@ class WriteNewsViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var textPost: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     var data: String = ""
-    var user = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", subscribers: [])
+    var user = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", following: [], followers: [])
     var postImage = [UIImage]()
     var news = NewsModel(userId: "", id: "", userName: "", date: "", profilePhoto: "", textPost: "", imagePost: "")
     

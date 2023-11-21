@@ -16,7 +16,8 @@ class SerchViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var serchBar: UISearchBar!
     
-    var serchUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", subscribers: [])
+    var serchUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "",following: [], followers: [])
+    var currentUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", following: [], followers: [])
     var resultUsers = [AppUser]()
     
     
@@ -25,6 +26,15 @@ class SerchViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        DatabaseService.shared.getProfile { result in
+            switch result {
+            case .success(let user):
+                self.currentUser = user
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
         
     }
     @IBAction func serchButton(_ sender: UIButton) {
@@ -55,6 +65,14 @@ class SerchViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         resultUsers.count
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "ProfileFriendViewController") as! ProfileFriendViewController
+        vc.user = self.resultUsers[indexPath.row]
+        vc.currentUser = self.currentUser
+        self.navigationController?.pushViewController(vc, animated: true)
+        print(resultUsers[indexPath.row])
     }
     
 }

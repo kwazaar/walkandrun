@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
     var step = [Step]()
     var arrayCoordinate = [CLLocationCoordinate2D]()
     var user = Employee()
-    var endUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", subscribers: [])
+    var endUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", following: [], followers: [])
     
     var cooordinateRegion = CLLocation(latitude: 53.1, longitude: 33.2)
     var currentUserId: String = ""
@@ -32,6 +32,9 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
     @IBOutlet weak var weight: UILabel!
     @IBOutlet weak var imagePhoto: UIImageView!
     @IBOutlet weak var savePhotoButton: UIButton!
+    @IBOutlet weak var following: UILabel!
+    @IBOutlet weak var followers: UILabel!
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -55,6 +58,8 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
         self.growth.text = user.growth
         self.weight.text = user.weight
         self.currentUserId = user.id
+        self.following.text = String(endUser.following.count)
+        self.followers.text = String(endUser.followers.count)
         
         endUser = AppUser(id: user.id,
                         email: user.email,
@@ -64,7 +69,8 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UICollectionVi
                         growth: user.growth,
                         weight: user.weight,
                         urlImage: user.urlImage,
-                        subscribers: [])
+                        following: [],
+                        followers: [])
 
         
         routeModel = realmService.localRealm.objects(RouteModel.self).filter({ $0.time > 0 })

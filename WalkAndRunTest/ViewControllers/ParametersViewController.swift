@@ -61,7 +61,8 @@ class ParametersViewController: UIViewController, UIGestureRecognizerDelegate {
                                     growth: growtfTextField.text!,
                                     weight: self.weightTextField.text!,
                                     urlImage: self.urlImage,
-                                    subscribers: [])
+                                    following: [],
+                                    followers: [])
                                     
         if employee == nil {
             employee = Employee()
@@ -89,6 +90,7 @@ class ParametersViewController: UIViewController, UIGestureRecognizerDelegate {
                 print("User register")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(identifier: "MainViewController") as! MainViewController
+                vc.currentUser = endUser
                 self.navigationController?.pushViewController(vc, animated: true)
             case .failure(let error):
                 print( error.localizedDescription)
