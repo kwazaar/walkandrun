@@ -20,7 +20,7 @@ class NewsViewController: UIViewController,UICollectionViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        DatabaseService.shared.getNews()
         collectionView.dataSource = self
         collectionView.delegate = self
     }

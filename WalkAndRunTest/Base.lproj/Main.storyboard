@@ -599,9 +599,10 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19m-2m-nhD">
                                         <rect key="frame" x="30" y="541" width="333" height="86"/>
-                                        <color key="tintColor" name="buttonColor1"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Новости"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Новости">
+                                            <color key="baseBackgroundColor" name="buttonColor1"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="showNews:" destination="a6D-l9-oJV" eventType="touchUpInside" id="rcE-qy-Yyg"/>
                                         </connections>

@@ -38,7 +38,7 @@ class SerchViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     @IBAction func serchButton(_ sender: UIButton) {
-        guard let email = serchBar.text else { return }
+        guard let email = serchBar.text?.lowercased() else { return }
         
         DatabaseService.shared.getUsers(email: email) { result in
             switch result {

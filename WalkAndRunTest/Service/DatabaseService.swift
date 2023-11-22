@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import FirebaseDatabase
 
 
 class DatabaseService {
@@ -25,7 +26,7 @@ class DatabaseService {
     private init () { }
     
     func pushNews(news: NewsModel, completion: @escaping ((Result<NewsModel, Error>) -> ())) {
-        newsRef.document(news.userId).collection(news.date).document(news.id).setData(news.representation) { error in
+        newsRef.document(news.id).setData(news.representation) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -33,6 +34,7 @@ class DatabaseService {
             }
         }
     }
+
     
     func setProfile(user: AppUser, completion: @escaping ((Result <AppUser, Error>) -> ())) {
         
@@ -44,8 +46,13 @@ class DatabaseService {
             }
         }
     }
+    func getNews() {
+//        Database.database().reference().child("news").observe(.childAdded) { snapshot in
+//            print(snapshot.value)
+//        }
+    }
     func getNews(completion: @escaping (Result<NewsModel, Error>) -> ()) {
-        // Реализовать получение новостей
+    
     }
     func getProfile(completion: @escaping (Result<AppUser, Error>) -> ()) {
         
