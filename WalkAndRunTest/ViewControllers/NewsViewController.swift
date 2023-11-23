@@ -12,15 +12,34 @@ class NewsViewController: UIViewController,UICollectionViewDelegate, UICollectio
     
     
     var testArray = [NewsModel(userId: "", userName: "Maxim Sizov", date: "12 ноября 2023", profilePhoto: "Image", textPost: "Я всегда хотел стать программистом и я им становлюсь", imagePost: "Image2"),NewsModel(userId: "", userName: "Kатя Евдокимова", date: "11 ноября 2023", profilePhoto: "Image1", textPost: "Я люблю слушать музыку и прочувствую каждую нотку из песни при прослушивании. Каждый раз удивляюсь когда нахожу достойную песню и сразу же добавляю ее в плейлист", imagePost: "Image"), NewsModel(userId: "", userName: "Виктор Стрельбин", date: "11 ноября 2023", profilePhoto: "Image1", textPost: "А я работаю ведущим, что бы мне этого не стоило я разввлекаю людей даже когда грустный и совсем нет настроения. Бесконечная сатира моих мыслей проносится над облаком пыли и выходит к облакам прямо на самый верх, это текст сгенерирован просто для того чтобы првоерить на сколько тут возможно сделать красиво", imagePost: nil) ]
-    
+    var appUser = AppUser(id: "", email: "", name: "", lastName: "", male: "", growth: "", weight: "", urlImage: "", following: [], followers: [])
+    var postsArray = [NewsModel]()
     
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DatabaseService.shared.getProfile { result in
+            switch result {
+            case .success(let user):
+                DatabaseService.shared.getNews(user: user) { result in
+                    switch result {
+                    case .success(let posts):
+                        self.postsArray = posts
+                        print(self.postsArray)
+                        self.collectionView.reloadData()
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
 
-        DatabaseService.shared.getNews()
+        
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -31,13 +50,16 @@ class NewsViewController: UIViewController,UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testArray.count
+        return postsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCollectionViewCell
         cell.delegate = self
-        let news = testArray[indexPath.row]
+        let news = postsArray[indexPath.row]
+        if let image = news.imagePost {
+            // реализовать загрузку изображения с помощью аламофаер
+        }
         cell.nameLable.text = news.userName
         cell.dateLable.text = news.date
         if let image = news.imagePost {

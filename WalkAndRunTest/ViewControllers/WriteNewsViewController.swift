@@ -44,7 +44,7 @@ class WriteNewsViewController: UIViewController, UICollectionViewDelegate, UICol
         data = getDate()
         news.id = UUID().uuidString
         news.userId = user.id
-        news.date = data
+        news.date = String(Date().timeIntervalSince1970)
         let userName = user.name + " " + user.lastName
         news.userName = userName
         news.profilePhoto = user.urlImage

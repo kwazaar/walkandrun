@@ -22,6 +22,8 @@ class DatabaseService {
     private var newsRef: CollectionReference {
         return db.collection("news")
     }
+    var lastDocument: QueryDocumentSnapshot?
+    var news = [NewsModel]()
     
     private init () { }
     
@@ -46,14 +48,44 @@ class DatabaseService {
             }
         }
     }
-    func getNews() {
-//        Database.database().reference().child("news").observe(.childAdded) { snapshot in
-//            print(snapshot.value)
-//        }
+    func getNews(user: AppUser, completion: @escaping ((Result<[NewsModel], Error>) -> ())) {
+        var query = newsRef.whereField("userId", in: user.following).order(by: "date").limit(to: 30)
+        
+        if let lastDocument = lastDocument {
+            query = query.start(afterDocument: lastDocument)
+        }
+        
+        query.getDocuments { querySnapshot, error in
+            
+            if let error = error {
+                print("Ошибка получения новостей \(error.localizedDescription)")
+            } else {
+                guard let documents = querySnapshot?.documents, !documents.isEmpty else {
+                    print("Нет дополнительных документов")
+                    return
+                }
+                for document in documents {
+                    let data = document.data()
+                    
+                    guard let id = data["id"] as? String else { return }
+                    guard let userId = data["userId"] as? String else { return }
+                    guard let userName = data["userName"] as? String else { return }
+                    guard let date = data["date"] as? String else { return }
+                    guard let profilePhoto = data["profilePhoto"] as? String else { return }
+                    guard let textPost = data["textPost"] as? String else { return }
+                    guard let imagePost = data["imagePost"] as? String else { return }
+                    
+                    self.news.append(NewsModel(userId: userId, id: id, userName: userName, date: date, profilePhoto: profilePhoto, textPost: textPost, imagePost: imagePost))
+                    
+                }
+                self.lastDocument = documents.last
+            }
+            
+            completion(.success(self.news))
+        }
+        
     }
-    func getNews(completion: @escaping (Result<NewsModel, Error>) -> ()) {
-    
-    }
+
     func getProfile(completion: @escaping (Result<AppUser, Error>) -> ()) {
         
         usersRef.document(AuthService.shared.currentUser!.email!).getDocument { documentSnapshor, error in
