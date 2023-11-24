@@ -28,6 +28,15 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DatabaseService.shared.getProfile { result in
+            switch result {
+            case .success(let user):
+                self.currentUser = user
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
 //        serchTextField.delegate = self
         
         navigationItem.hidesBackButton = true

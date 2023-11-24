@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class NewsViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, CollectionViewCellDelegateButton {
 
@@ -57,14 +58,17 @@ class NewsViewController: UIViewController,UICollectionViewDelegate, UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCollectionViewCell
         cell.delegate = self
         let news = postsArray[indexPath.row]
-        if let image = news.imagePost {
-            // реализовать загрузку изображения с помощью аламофаер
+        if let imageURL = news.imagePost {
+            AF.request(imageURL).response { response in
+                guard let data = response.data else { return }
+                cell.postImage.image = UIImage(data: data)
+            }
         }
         cell.nameLable.text = news.userName
         cell.dateLable.text = news.date
-        if let image = news.imagePost {
-            cell.postImage.image = UIImage(named: image)
-        }
+//        if let image = news.imagePost {
+//            cell.postImage.image = UIImage(named: image)
+//        }
         
         if news.textPost.count > 100 {
             

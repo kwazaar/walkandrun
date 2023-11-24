@@ -21,6 +21,8 @@
 		ED1E42D62AFC7AF500CAA2D7 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */; };
 		ED1E42D82AFC809000CAA2D7 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1E42D72AFC809000CAA2D7 /* NewsModel.swift */; };
 		ED1F294B2B04782400B09FAC /* WriteNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1F294A2B04782400B09FAC /* WriteNewsViewController.swift */; };
+		ED2BAE0A2B1046D0004DD029 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED2BAE092B1046D0004DD029 /* Alamofire */; };
+		ED2BAE0C2B1046EA004DD029 /* NetworkServiceWithAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2BAE0B2B1046EA004DD029 /* NetworkServiceWithAlamofire.swift */; };
 		ED31B3AC2AE8C5D7007A4279 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */; };
 		ED32F45E2AB990DF004CDB29 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */; };
 		ED32F4612AB992FB004CDB29 /* RegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED32F4602AB992FB004CDB29 /* RegViewController.swift */; };
@@ -72,6 +74,7 @@
 		ED1E42D52AFC7AF500CAA2D7 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		ED1E42D72AFC809000CAA2D7 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		ED1F294A2B04782400B09FAC /* WriteNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteNewsViewController.swift; sourceTree = "<group>"; };
+		ED2BAE0B2B1046EA004DD029 /* NetworkServiceWithAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceWithAlamofire.swift; sourceTree = "<group>"; };
 		ED31B3AB2AE8C5D7007A4279 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		ED32F45D2AB990DF004CDB29 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		ED32F4602AB992FB004CDB29 /* RegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED3CEAE22AC612E000BFC1F8 /* RealmSwift in Frameworks */,
+				ED2BAE0A2B1046D0004DD029 /* Alamofire in Frameworks */,
 				EDE22C242ABA190B0061710E /* FirebaseDatabase in Frameworks */,
 				EDE22C282ABA190B0061710E /* FirebaseStorage in Frameworks */,
 				EDE22C222ABA190B0061710E /* FirebaseAuth in Frameworks */,
@@ -144,6 +148,7 @@
 				ED1B789D2ABCB4FC009F09D4 /* AuthService.swift */,
 				ED3CEAE52AC6185000BFC1F8 /* RealmService.swift */,
 				ED6B71B12AF1F2C10086677C /* WeatherAPI.swift */,
+				ED2BAE0B2B1046EA004DD029 /* NetworkServiceWithAlamofire.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				EDE22C272ABA190B0061710E /* FirebaseStorage */,
 				ED3CEADF2AC612E000BFC1F8 /* Realm */,
 				ED3CEAE12AC612E000BFC1F8 /* RealmSwift */,
+				ED2BAE092B1046D0004DD029 /* Alamofire */,
 			);
 			productName = WalkAndRunTest;
 			productReference = EDC845372AB15A36001E1918 /* WalkAndRunTest.app */;
@@ -298,6 +304,7 @@
 			packageReferences = (
 				EDE22C202ABA190B0061710E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				ED3CEADE2AC612E000BFC1F8 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				ED2BAE082B1046D0004DD029 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = EDC845382AB15A36001E1918 /* Products */;
 			projectDirPath = "";
@@ -345,6 +352,7 @@
 				ED0F96192AD4F44A00A76FE5 /* MapPin.swift in Sources */,
 				ED4E31782AF340FE0020BB66 /* WeatherCollectionViewCell.swift in Sources */,
 				EDA244A12ACE5E60005496A4 /* NavigationViewController.swift in Sources */,
+				ED2BAE0C2B1046EA004DD029 /* NetworkServiceWithAlamofire.swift in Sources */,
 				EDC8453D2AB15A36001E1918 /* SceneDelegate.swift in Sources */,
 				ED3CEAE62AC6185000BFC1F8 /* RealmService.swift in Sources */,
 				ED1E42D82AFC809000CAA2D7 /* NewsModel.swift in Sources */,
@@ -596,6 +604,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		ED2BAE082B1046D0004DD029 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		ED3CEADE2AC612E000BFC1F8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -615,6 +631,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		ED2BAE092B1046D0004DD029 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED2BAE082B1046D0004DD029 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		ED3CEADF2AC612E000BFC1F8 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ED3CEADE2AC612E000BFC1F8 /* XCRemoteSwiftPackageReference "realm-swift" */;
