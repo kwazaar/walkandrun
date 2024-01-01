@@ -11,6 +11,7 @@ import FirebaseStorage
 
 
 class StorageService {
+    
     static var shared = StorageService()
     
     private init() { }
